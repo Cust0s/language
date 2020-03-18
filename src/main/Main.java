@@ -14,6 +14,17 @@ public class Main {
         UIManager.getLookAndFeelDefaults()
                 .put("defaultFont", new Font("Malgun Gothic", Font.PLAIN, 20));
 
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         myConfig = new ConfigFile("config.properties");
         currentSettings = new Settings(myConfig);
 
