@@ -13,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
         UIManager.getLookAndFeelDefaults()
                 .put("defaultFont", new Font("Malgun Gothic", Font.PLAIN, 20));
-
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException e) {
