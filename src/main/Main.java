@@ -7,7 +7,9 @@ public class Main {
     public static final int WORDS = 1;
     public static final int PHRASES = 2;
     public static final int SPECIAL = 3;
-    static Settings currentSettings;
+
+    //public static String fontName =
+    public static Settings currentSettings;
     static ConfigFile myConfig;
 
     public static void main(String[] args) {

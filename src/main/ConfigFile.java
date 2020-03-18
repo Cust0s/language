@@ -12,7 +12,7 @@ public class ConfigFile {
 
     /**
      * Stores the file information read from the properties file. Each file is stored as a String Array with
-     * three values. Category (1 = Words, 2 = Phrases, 3 = Special), display name and the file path.
+     * five values. Category (1 = Words, 2 = Phrases, 3 = Special), enabled/disabled, display name, the file path, config file key.
      */
     private ArrayList<String[]> filePaths;
 
@@ -24,6 +24,7 @@ public class ConfigFile {
 
 
     ConfigFile(String filePath){
+        System.out.println("Created Config file!");
         this.filePath = filePath;
         configFile = new File(filePath);
         myProperties = new Properties();
@@ -41,11 +42,15 @@ public class ConfigFile {
             updateFileInformation();
             System.out.println("");
 
-            addFileInformation(Main.WORDS, "First new Set", "nextFile.txt");
-            addFileInformation(Main.WORDS, "Second new Set", "nextFile2.txt");
-            System.out.println(addFileInformation(Main.WORDS, "Second new Set", "nextFile4.txt"));
-            System.out.println(addFileInformation(Main.WORDS, "Fourth new Set", "nextFile2.txt"));
-            addFileInformation(Main.WORDS, "Third new Set", "nextFile3.txt");
+            addFileInformation(Main.WORDS, true,"First new Set", "nextFile.txt");
+            addFileInformation(Main.WORDS, true,"Second new Set", "nextFile2.txt");
+            addFileInformation(Main.WORDS, true,"Second new Set", "nextFile4.txt");
+            addFileInformation(Main.WORDS, true,"Fourth new Set", "nextFile2.txt");
+            addFileInformation(Main.WORDS, true,"Third new Set", "nextFile3.txt");
+
+            addFileInformation(Main.PHRASES,true,"ENTER", "words5Enter.txt");
+            addFileInformation(Main.PHRASES, true, "ENTER", "words5Exit.txt");
+            addFileInformation(Main.SPECIAL,true, "ENTER" , "words5Special.txt");
 
             updateMaxIndex();
             System.out.println("Reading File Information");
@@ -57,6 +62,9 @@ public class ConfigFile {
         }
     }
 
+    public ArrayList<String[]> getFilePaths() {
+        return filePaths;
+    }
 
     /**
      * Updates the value for the maximum index found in the property keys for keys beginning
@@ -95,7 +103,7 @@ public class ConfigFile {
      * Reads the current properties and picks out the data related to the file information.
      * This is then stored in the Arraylist {@link #filePaths}
      */
-    private void updateFileInformation(){
+    public void updateFileInformation(){
         try {
             FileReader myReader = new FileReader(configFile);
 
@@ -108,9 +116,12 @@ public class ConfigFile {
                 //key is one of the file paths
                 if(key.contains(FILE_INFORMATION_PREFIX)){
                     String tempkey[] = myProperties.getProperty(key).split(",");
-                    if(tempkey.length == 3){
+
+                    if(tempkey.length == 4){
                         //key has the correct length and is assumed to be valid
-                        filePaths.add(tempkey);
+                        String[] tempKeyNew = Arrays.copyOf(tempkey, 5);
+                        tempKeyNew[4] = key;   //add the object key to the end
+                        filePaths.add(tempKeyNew);
                     } else{
                         //key did not have the correct size
                         System.out.println("Invalid Key! " + Arrays.toString(tempkey));
@@ -134,20 +145,22 @@ public class ConfigFile {
      * Adds the information for a new file to the properties.
      *
      * @param category          The category for the file (1=Words, 2=Phrases, 3=Special)
+     * @param enabled           Indicates enabled status for the file
      * @param displayName       The display displayName for the file
      * @param desiredFilePath   The path to the file
      * @return   1 if the information was successfully stored,
      *          -1 if the object displayName is already in use,
      *          -2 if the object path is already in use
      */
-    int addFileInformation(int category, String displayName, String desiredFilePath){
+    int addFileInformation(int category, boolean enabled, String displayName, String desiredFilePath){
         //check if file path or filename already exists in properties
         updateFileInformation();    //get the newest file information
         for(String[] thisArray : filePaths){
-            if(thisArray[1].equals(displayName)){
+            //only allow a display name to be taken twice if it is in a different category
+            if(thisArray[2].equals(displayName) && thisArray[0].equals(Integer.toString(category))){
                 //display displayName for the object is already in use
                 return -1;
-            } else if(thisArray[2].equals(desiredFilePath)){
+            } else if(thisArray[3].equals(desiredFilePath)){
                 //file path is already in use
                 return -2;
             }
@@ -156,7 +169,7 @@ public class ConfigFile {
         //add the new file information to the properties
         try {
             //add the new entry to the properties file and increase the maxFileIndex at the same time
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + displayName + "," +desiredFilePath);
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFilePath);
 
             FileWriter myWriter = new FileWriter(filePath);
             myProperties.store(myWriter,"Added new category with index " + maxFileIndex);    //store the properties that were created
@@ -173,16 +186,35 @@ public class ConfigFile {
     private void generateNewProperties(){
         try {
             //set the default properties here
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 1,"1,lesson1,words1.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 2,"1,lesson2,words2.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 3,"1,lesson3,tooMuch,words3.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 4,"1,lesson4,words4.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 5,"1,lesson5,words5.txt");
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + 1,"1,true,lesson1,words1.txt");
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + 2,"1,true,lesson2,words2.txt");
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + 3,"1,true,lesson3,tooMuch,words3.txt");
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + 4,"1,true,lesson4,words4.txt");
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + 5,"1,true,lesson5,words5.txt");
 
 
             FileWriter myWriter = new FileWriter(filePath);     //create new FileWriter
-            myProperties.store(myWriter, "category, name, file path");    //store the properties that were created
+            myProperties.store(myWriter, "category, enabled/disabled, name, file path");    //store the properties that were created
             myWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void putUpdatedFileInformation(String key, String value) {
+        try {
+            //read the current properties
+            FileReader myReader = new FileReader(configFile);
+            myProperties.load(myReader);    //load properties
+            myReader.close();
+
+            FileWriter myWriter = new FileWriter(configFile);     //create new FileWriter
+            myProperties.setProperty(key, value);
+            myProperties.store(myWriter, "category ,enabled/disabled , name, file path");    //store the properties that were created
+            myWriter.close();
+
+        } catch (FileNotFoundException e) {
+            //file not found
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Settings {
     private String languageA;
@@ -28,6 +29,14 @@ public class Settings {
         return languageB;
     }
 
+    public ArrayList<String[]> getFileData(){
+        return myConfig.getFilePaths();
+    }
+
+    public void updateFileInformation(){
+        myConfig.updateFileInformation();
+    }
+
 
     /**
      * Creates a new language file and adds its information to the config file.
@@ -36,7 +45,7 @@ public class Settings {
      * @param filePath      The path to the file
      * @return              Successful creation
      */
-    public boolean addLanguageFile(int category, String displayName, String filePath){
+    public boolean addLanguageFile(int category, boolean enabled, String displayName, String filePath){
         //check if the filePath is valid
         try{
             Paths.get(filePath);
@@ -46,7 +55,7 @@ public class Settings {
         }
 
 
-        switch(myConfig.addFileInformation(category, displayName, filePath)){
+        switch(myConfig.addFileInformation(category, enabled, displayName, filePath)){
             case -1:
                 //display name already in use
                 //ToDo inform the user of the error
@@ -74,5 +83,10 @@ public class Settings {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public void putUpdatedFileInformation(int category, boolean selected, String name, String filePath, String configKey){
+        String value = category + "," + selected + "," + name + "," + filePath;
+        myConfig.putUpdatedFileInformation(configKey,value);
     }
 }

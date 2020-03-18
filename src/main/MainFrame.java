@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
-    Settings currentSettings;
+    public Settings currentSettings;
     final int sizeX = 1280;
     final int sizeY = 720;
 
@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    void addMenu(){
+    public void addMenu(){
         JMenuBar menuBar = new JMenuBar();
 
         //---File Menu---
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
         JMenuItem preferencesItem = new JMenuItem(new AbstractAction("Preferences") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new PreferencesFrame(getThisParent());
+                new PreferencesFrame(getThisParent(), currentSettings);
                 System.out.println("PREFERENCES WINDOW");
             }
         });

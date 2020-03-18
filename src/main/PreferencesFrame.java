@@ -1,17 +1,20 @@
 package main;
 
+import main.preferences.LanguagePacks;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PreferencesFrame extends JDialog {
 
-    public PreferencesFrame(JFrame parent){
+    public PreferencesFrame(JFrame parent, Settings currentSettings){
         super(parent, "Title", true);
+        System.out.println("CREATED NEW PREFERENCE PANEL");
         getContentPane().setPreferredSize(new Dimension(854,480));
         //create content panel to hold the tabbed pane
-        JPanel content = new JPanel();
-        content.setBackground(Color.CYAN);
-        content.setLayout(new BorderLayout());
+        //JPanel content = new JPanel();
+        //content.setBackground(Color.CYAN);
+        //content.setLayout(new BorderLayout());
 
         //create JTabbedPane
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -20,20 +23,18 @@ public class PreferencesFrame extends JDialog {
 
         //add general settings tab
         JPanel pane1 = new JPanel();
-        pane1.setBackground(Color.GREEN);
         tabbedPane.add("Settings", pane1);
         tabbedPane.setToolTipTextAt(0, "General Settings");
         tabbedPane.setTabComponentAt(0,new TabComponent(tabbedPane));
 
         //add language packs tab
-        JPanel pane2 = new JPanel();
-        pane2.setBackground(Color.MAGENTA);
+
+        LanguagePacks pane2 = new LanguagePacks(currentSettings);
         tabbedPane.add("Language Packs", pane2);
         tabbedPane.setToolTipTextAt(1,"Add and remove language packs here");
         tabbedPane.setTabComponentAt(1, new TabComponent(tabbedPane));
 
-
-        getContentPane().add(content);
+        //getContentPane().add(content);
         getContentPane().add(tabbedPane);
         pack();
         setVisible(true);
