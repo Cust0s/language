@@ -22,6 +22,7 @@ public class MainMenuContent extends JPanel {
         gbc.gridy = 1;
         gbc.weightx = 0.1;
         gbc.weighty = 0.1;
+
         CheckBoxScrollPane testPane = new CheckBoxScrollPane("Words");
         testPane.addCheckBox("Box 1", false);
         testPane.addCheckBox("Box 2", false);
