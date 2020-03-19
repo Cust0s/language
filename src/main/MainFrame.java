@@ -7,19 +7,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
-    public Settings currentSettings;
+    public ConfigFile myConfig;
     final int sizeX = 1280;
     final int sizeY = 720;
 
-    MainFrame(Settings currentSettings){
+    MainFrame(ConfigFile myConfig){
         super("Language Learning");
-        this.currentSettings = currentSettings;
+        this.myConfig = myConfig;
         getContentPane().setPreferredSize(new Dimension(sizeX, sizeY));
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
 
-        getContentPane().add(new MainMenuContent(currentSettings));
+        getContentPane().add(new MainMenuContent(myConfig));
 
         addMenu();
 
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
         JMenuItem preferencesItem = new JMenuItem(new AbstractAction("Preferences") {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new PreferencesFrame(getThisParent(), currentSettings);
+                new PreferencesFrame(getThisParent(), myConfig);
                 System.out.println("PREFERENCES WINDOW");
             }
         });

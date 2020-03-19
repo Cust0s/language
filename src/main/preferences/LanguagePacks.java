@@ -1,9 +1,8 @@
 package main.preferences;
 
-import main.Settings;
+import main.ConfigFile;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LanguagePacks extends JPanel {
-    public Settings currentSettings;
+    public ConfigFile myConfig;
     private ArrayList<SpecialCheckBoxes> allCheckBoxes;
 
     ActionListener checkBoxAction = new ActionListener() {
@@ -22,9 +21,9 @@ public class LanguagePacks extends JPanel {
         }
     };
 
-    public LanguagePacks(Settings currentSettings){
+    public LanguagePacks(ConfigFile myConfig){
         super();
-        this.currentSettings = currentSettings;
+        this.myConfig = myConfig;
         allCheckBoxes = new ArrayList<>();
         setBackground(Color.GREEN);
         setLayout(new GridBagLayout());
@@ -115,10 +114,10 @@ public class LanguagePacks extends JPanel {
         packsTabbedPane.add("Special", specialTab);
         packsTabbedPane.setToolTipTextAt(0, "Packs in the \"Special\" category.");
 
-        currentSettings.updateFileInformation();
-        currentSettings.getFileData();
+        myConfig.updateFileInformation();
+        myConfig.getFilePaths();
 
-        for(String[] thisData : currentSettings.getFileData()){
+        for(String[] thisData : myConfig.getFilePaths()){
             SpecialCheckBoxes temp = new SpecialCheckBoxes(Integer.parseInt(thisData[0]), Boolean.parseBoolean(thisData[1]), thisData[2], thisData[3], thisData[4], this);
             temp.addActionListener(checkBoxAction);
             switch(Integer.parseInt(thisData[0])){
@@ -176,7 +175,7 @@ public class LanguagePacks extends JPanel {
         public void setSelected(){
             System.out.println("Triggered checkbox");
             selected = isSelected();
-            parent.currentSettings.putUpdatedFileInformation(category, selected, name, filePath, configKey);
+            parent.myConfig.putUpdatedFileInformation(category, selected, name, filePath, configKey);
         }
     }
 

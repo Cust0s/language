@@ -9,8 +9,7 @@ public class Main {
     public static final int SPECIAL = 3;
 
     //public static String fontName =
-    public static Settings currentSettings;
-    static ConfigFile myConfig;
+    public static ConfigFile myConfig;
 
     public static void main(String[] args) {
         UIManager.getLookAndFeelDefaults()
@@ -27,9 +26,8 @@ public class Main {
             e.printStackTrace();
         }
         myConfig = new ConfigFile("config.properties");
-        currentSettings = new Settings(myConfig);
 
-        MainFrame frame = new MainFrame(currentSettings);
+        MainFrame frame = new MainFrame(myConfig);
 
     }
 }

@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class PreferencesFrame extends JDialog {
 
-    public PreferencesFrame(JFrame parent, Settings currentSettings){
+    public PreferencesFrame(JFrame parent, ConfigFile myConfig){
         super(parent, "Title", true);
         System.out.println("CREATED NEW PREFERENCE PANEL");
         getContentPane().setPreferredSize(new Dimension(854,480));
@@ -29,7 +29,7 @@ public class PreferencesFrame extends JDialog {
 
         //add language packs tab
 
-        LanguagePacks pane2 = new LanguagePacks(currentSettings);
+        LanguagePacks pane2 = new LanguagePacks(myConfig);
         tabbedPane.add("Language Packs", pane2);
         tabbedPane.setToolTipTextAt(1,"Add and remove language packs here");
         tabbedPane.setTabComponentAt(1, new TabComponent(tabbedPane));

@@ -1,17 +1,17 @@
 package mainMenu;
 
-import main.Settings;
+import main.ConfigFile;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class MainMenuContent extends JPanel {
-    Settings currentSettings;
+    ConfigFile myConfig;
 
 
-    public MainMenuContent(Settings currentSettings){
-        this.currentSettings = currentSettings;
+    public MainMenuContent(ConfigFile myConfig){
+        this.myConfig = myConfig;
         setBackground(Color.RED);
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -55,10 +55,10 @@ public class MainMenuContent extends JPanel {
         JLabel languageLabel = new JLabel("Display Language");
         add(languageLabel, gbc);
 
-        JRadioButton checkboxLanguageA = new JRadioButton(currentSettings.getLanguageA(), true);
+        JRadioButton checkboxLanguageA = new JRadioButton(myConfig.getLanguageA(), true);
         gbc.gridy = 3;
         add(checkboxLanguageA, gbc);
-        JRadioButton checkboxLanguageB = new JRadioButton(currentSettings.getLanguageB(), false);
+        JRadioButton checkboxLanguageB = new JRadioButton(myConfig.getLanguageB(), false);
         gbc.gridy = 4;
         add(checkboxLanguageB, gbc);
         JRadioButton checkboxLanguageAB = new JRadioButton("Mixed", false);

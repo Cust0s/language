@@ -1,6 +1,8 @@
 package main;
 
 import java.io.*;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -16,6 +18,9 @@ public class ConfigFile {
      */
     private ArrayList<String[]> filePaths;
 
+    private String languageA;
+    private String languageB;
+
 
     private Properties myProperties; //Properties object
     private String filePath;         //path to the configuration file
@@ -26,6 +31,9 @@ public class ConfigFile {
     ConfigFile(String filePath){
         System.out.println("Created Config file!");
         this.filePath = filePath;
+        languageA = "Korean";
+        languageB = "English";
+
         configFile = new File(filePath);
         myProperties = new Properties();
 
@@ -64,6 +72,14 @@ public class ConfigFile {
 
     public ArrayList<String[]> getFilePaths() {
         return filePaths;
+    }
+
+    public String getLanguageA(){
+        return languageA;
+    }
+
+    public String getLanguageB(){
+        return languageB;
     }
 
     /**
@@ -201,7 +217,8 @@ public class ConfigFile {
         }
     }
 
-    public void putUpdatedFileInformation(String key, String value) {
+    public void putUpdatedFileInformation(int category, boolean selected, String name, String filePath, String configKey) {
+        String value = category + "," + selected + "," + name + "," + filePath;
         try {
             //read the current properties
             FileReader myReader = new FileReader(configFile);
@@ -209,7 +226,7 @@ public class ConfigFile {
             myReader.close();
 
             FileWriter myWriter = new FileWriter(configFile);     //create new FileWriter
-            myProperties.setProperty(key, value);
+            myProperties.setProperty(configKey, value);
             myProperties.store(myWriter, "category ,enabled/disabled , name, file path");    //store the properties that were created
             myWriter.close();
 
@@ -219,4 +236,53 @@ public class ConfigFile {
             e.printStackTrace();
         }
     }
+
+    //ToDo implement this
+    /**
+     * Creates a new language file and adds its information to the config file.
+     * @param category      The category for the file (1=Words, 2=Phrases, 3=Special)
+     * @param displayName   The display displayName for the file
+     * @param filePath      The path to the file
+     * @return              Successful creation
+     */
+    public boolean addLanguageFile(int category, boolean enabled, String displayName, String filePath){
+        //check if the filePath is valid
+        try{
+            Paths.get(filePath);
+        } catch( InvalidPathException | NullPointerException e){
+            //ToDo inform the user of the error
+            return false;
+        }
+
+
+        switch(addFileInformation(category, enabled, displayName, filePath)){
+            case -1:
+                //display name already in use
+                //ToDo inform the user of the error
+                return false;
+            case -2:
+                //file path already in use
+                //ToDo inform the user of the error
+                return false;
+            case 1:
+                //added successfully
+                break;
+        }
+
+        File tempFile = new File(filePath);
+
+        try {
+            if(tempFile.createNewFile()){
+                //created new file
+                return true;
+            } else {
+                //file already exists
+                //ToDo inform the user of the error
+                return false;
+            }
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
 }
