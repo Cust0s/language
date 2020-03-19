@@ -114,7 +114,7 @@ public class LanguagePacks extends JPanel {
         packsTabbedPane.add("Special", specialTab);
         packsTabbedPane.setToolTipTextAt(0, "Packs in the \"Special\" category.");
 
-        myConfig.updateFileInformation();
+        myConfig.readLanguagePacks();
         myConfig.getFilePaths();
 
         for(String[] thisData : myConfig.getFilePaths()){
@@ -175,7 +175,7 @@ public class LanguagePacks extends JPanel {
         public void setSelected(){
             System.out.println("Triggered checkbox");
             selected = isSelected();
-            parent.myConfig.putUpdatedFileInformation(category, selected, name, filePath, configKey);
+            parent.myConfig.updateLanguagePackSelected(category, selected, name, filePath, configKey);
         }
     }
 

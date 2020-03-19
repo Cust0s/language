@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class MainMenuContent extends JPanel {
     ConfigFile myConfig;
 
-
     public MainMenuContent(ConfigFile myConfig){
         this.myConfig = myConfig;
         setBackground(Color.RED);

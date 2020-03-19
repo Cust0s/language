@@ -23,18 +23,18 @@ public class ConfigFile {
 
 
     private Properties myProperties; //Properties object
-    private String filePath;         //path to the configuration file
+    private String configFilePath;         //path to the configuration file
     private File configFile;         //file object for the configuration file
     private int maxFileIndex = 0;    //holds the max index for FILE_INFORMATION_PREFIX
 
 
-    ConfigFile(String filePath){
+    ConfigFile(String configFilePath){
         System.out.println("Created Config file!");
-        this.filePath = filePath;
+        this.configFilePath = configFilePath;
         languageA = "Korean";
         languageB = "English";
 
-        configFile = new File(filePath);
+        configFile = new File(configFilePath);
         myProperties = new Properties();
 
         try{
@@ -47,22 +47,21 @@ public class ConfigFile {
             updateMaxIndex();
 
             System.out.println("Reading File Information");
-            updateFileInformation();
+            readLanguagePacks();
             System.out.println("");
 
-            addFileInformation(Main.WORDS, true,"First new Set", "nextFile.txt");
-            addFileInformation(Main.WORDS, true,"Second new Set", "nextFile2.txt");
-            addFileInformation(Main.WORDS, true,"Second new Set", "nextFile4.txt");
-            addFileInformation(Main.WORDS, true,"Fourth new Set", "nextFile2.txt");
-            addFileInformation(Main.WORDS, true,"Third new Set", "nextFile3.txt");
 
-            addFileInformation(Main.PHRASES,true,"ENTER", "words5Enter.txt");
-            addFileInformation(Main.PHRASES, true, "ENTER", "words5Exit.txt");
-            addFileInformation(Main.SPECIAL,true, "ENTER" , "words5Special.txt");
+            System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt"));
+            System.out.println("add words lesson 2: " + addLanguagePack(Main.WORDS,true,"lesson 2", "words_lesson_2.txt"));
+            System.out.println("add words lesson invalid: " + addLanguagePack(Main.WORDS,true,"lesson invalid", "words_lesson_1.txt"));
+
+            System.out.println("add phrases lesson 1: " + addLanguagePack(Main.PHRASES,true,"lesson 1", "phrases_lesson_1.txt"));
+
+            System.out.println("add special lesson 3: " + addLanguagePack(Main.SPECIAL,true,"lesson 3","special_lesson_3.txt"));
 
             updateMaxIndex();
             System.out.println("Reading File Information");
-            updateFileInformation();
+            readLanguagePacks();
             System.out.println("");
 
         }  catch (IOException e){
@@ -116,10 +115,10 @@ public class ConfigFile {
     }
 
     /**
-     * Reads the current properties and picks out the data related to the file information.
+     * Reads the current properties and picks out the data related to the language packs.
      * This is then stored in the Arraylist {@link #filePaths}
      */
-    public void updateFileInformation(){
+    public void readLanguagePacks(){
         try {
             FileReader myReader = new FileReader(configFile);
 
@@ -158,28 +157,53 @@ public class ConfigFile {
     }
 
     /**
-     * Adds the information for a new file to the properties.
+     * Adds the information for a new language pack to the properties and creates a new file if it does not exist yet
      *
      * @param category          The category for the file (1=Words, 2=Phrases, 3=Special)
      * @param enabled           Indicates enabled status for the file
      * @param displayName       The display displayName for the file
      * @param desiredFilePath   The path to the file
-     * @return   1 if the information was successfully stored,
-     *          -1 if the object displayName is already in use,
-     *          -2 if the object path is already in use
+     * @return   0 if IO error occurs
+     *           1 if the information was successfully stored,
+     *          -1 if the file path is invalid
+     *          -2 if the object displayName is already in use,
+     *          -3 if the object path is already in use (in properties file)
+     *          -4 if the file already exists (on the computer)
      */
-    int addFileInformation(int category, boolean enabled, String displayName, String desiredFilePath){
+    int addLanguagePack(int category, boolean enabled, String displayName, String desiredFilePath){
+        //Check if the desired new file path is valid
+        try{
+            Paths.get(desiredFilePath);
+        } catch( InvalidPathException | NullPointerException e){
+            //file path is invalid
+            return -1;
+        }
+
+
         //check if file path or filename already exists in properties
-        updateFileInformation();    //get the newest file information
+        readLanguagePacks();    //get the newest file information
         for(String[] thisArray : filePaths){
             //only allow a display name to be taken twice if it is in a different category
             if(thisArray[2].equals(displayName) && thisArray[0].equals(Integer.toString(category))){
                 //display displayName for the object is already in use
-                return -1;
+                return -2;
             } else if(thisArray[3].equals(desiredFilePath)){
                 //file path is already in use
-                return -2;
+                return -3;
             }
+        }
+
+        File tempFile = new File(desiredFilePath);
+
+        //check if file already exists on computer and create file
+        try {
+            if(!tempFile.createNewFile()){
+                //file already exists
+                //ToDo inform the user of the error
+                return -4;
+            }
+        } catch (IOException e) {
+            return 0;
         }
 
         //add the new file information to the properties
@@ -187,29 +211,25 @@ public class ConfigFile {
             //add the new entry to the properties file and increase the maxFileIndex at the same time
             myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFilePath);
 
-            FileWriter myWriter = new FileWriter(filePath);
+            FileWriter myWriter = new FileWriter(configFilePath);
             myProperties.store(myWriter,"Added new category with index " + maxFileIndex);    //store the properties that were created
             myWriter.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            return 0;
         }
         return 1;
     }
 
     /**
-     * Generates a set of default properties. Should be called if a new properties file gets generated.
+     * Generates a set of default properties. Should be called if a new properties file is generated.
      */
     private void generateNewProperties(){
         try {
             //set the default properties here
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 1,"1,true,lesson1,words1.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 2,"1,true,lesson2,words2.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 3,"1,true,lesson3,tooMuch,words3.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 4,"1,true,lesson4,words4.txt");
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + 5,"1,true,lesson5,words5.txt");
+            //myProperties.setProperty("key","value");
 
 
-            FileWriter myWriter = new FileWriter(filePath);     //create new FileWriter
+            FileWriter myWriter = new FileWriter(configFilePath);     //create new FileWriter
             myProperties.store(myWriter, "category, enabled/disabled, name, file path");    //store the properties that were created
             myWriter.close();
         } catch (IOException e) {
@@ -217,7 +237,16 @@ public class ConfigFile {
         }
     }
 
-    public void putUpdatedFileInformation(int category, boolean selected, String name, String filePath, String configKey) {
+    /**
+     * Update the language pack information in the properties file language pack files are not affected by these changes)
+     * @param category
+     * @param selected
+     * @param name
+     * @param filePath
+     * @param configKey
+     */
+    public void updateLanguagePackSelected(int category, boolean selected, String name, String filePath, String configKey) {
+        //ToDo get the current information from the properties file for the specified key and only change "selected"
         String value = category + "," + selected + "," + name + "," + filePath;
         try {
             //read the current properties
@@ -236,53 +265,4 @@ public class ConfigFile {
             e.printStackTrace();
         }
     }
-
-    //ToDo implement this
-    /**
-     * Creates a new language file and adds its information to the config file.
-     * @param category      The category for the file (1=Words, 2=Phrases, 3=Special)
-     * @param displayName   The display displayName for the file
-     * @param filePath      The path to the file
-     * @return              Successful creation
-     */
-    public boolean addLanguageFile(int category, boolean enabled, String displayName, String filePath){
-        //check if the filePath is valid
-        try{
-            Paths.get(filePath);
-        } catch( InvalidPathException | NullPointerException e){
-            //ToDo inform the user of the error
-            return false;
-        }
-
-
-        switch(addFileInformation(category, enabled, displayName, filePath)){
-            case -1:
-                //display name already in use
-                //ToDo inform the user of the error
-                return false;
-            case -2:
-                //file path already in use
-                //ToDo inform the user of the error
-                return false;
-            case 1:
-                //added successfully
-                break;
-        }
-
-        File tempFile = new File(filePath);
-
-        try {
-            if(tempFile.createNewFile()){
-                //created new file
-                return true;
-            } else {
-                //file already exists
-                //ToDo inform the user of the error
-                return false;
-            }
-        } catch (IOException e) {
-            return false;
-        }
-    }
-
 }
