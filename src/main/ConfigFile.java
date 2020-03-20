@@ -170,7 +170,7 @@ public class ConfigFile {
      *          -3 if the object path is already in use (in properties file)
      *          -4 if the file already exists (on the computer)
      */
-    int addLanguagePack(int category, boolean enabled, String displayName, String desiredFilePath){
+    public int addLanguagePack(int category, boolean enabled, String displayName, String desiredFilePath){
         //Check if the desired new file path is valid
         try{
             Paths.get(desiredFilePath);
