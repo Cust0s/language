@@ -1,5 +1,6 @@
 package main;
 
+import main.studySpace.StudySpace;
 import mainMenu.MainMenuContent;
 
 import javax.swing.*;
@@ -8,20 +9,30 @@ import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame {
     public ConfigFile myConfig;
+    private JPanel currentContent;  //holds the current displayed content e.g. Main Menu or study space
     final int sizeX = 1280;
     final int sizeY = 720;
+    final Dimension size = new Dimension(sizeX,sizeY);
 
     MainFrame(ConfigFile myConfig){
         super("Language Learning");
         this.myConfig = myConfig;
-        getContentPane().setPreferredSize(new Dimension(sizeX, sizeY));
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
 
-        getContentPane().add(new MainMenuContent(myConfig));
+        currentContent = new JPanel();
+        currentContent.setLayout(new GridBagLayout());
 
+        currentContent.add(new StudySpace(myConfig, sizeX, sizeY));
+        //currentContent.add(new MainMenuContent(myConfig, size));
+
+        getContentPane().add(currentContent);
         addMenu();
+
+
+        revalidate();
+        repaint();
 
 
         pack();

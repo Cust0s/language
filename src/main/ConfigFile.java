@@ -21,6 +21,10 @@ public class ConfigFile {
     private String languageA;
     private String languageB;
 
+    //ToDo Add global setting to instantly display solution or not
+    //ToDo Add global setting to change this variable
+    private boolean auxWindowEnabled = true;    //indicates the setting for displaying of the aux window in the study space
+
 
     private Properties myProperties; //Properties object
     private String configFilePath;         //path to the configuration file
@@ -264,5 +268,9 @@ public class ConfigFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isAuxWindowEnabled() {
+        return auxWindowEnabled;
     }
 }

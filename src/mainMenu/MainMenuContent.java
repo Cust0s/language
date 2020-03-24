@@ -9,8 +9,9 @@ import java.util.ArrayList;
 public class MainMenuContent extends JPanel {
     ConfigFile myConfig;
 
-    public MainMenuContent(ConfigFile myConfig){
+    public MainMenuContent(ConfigFile myConfig, Dimension panelSize){
         this.myConfig = myConfig;
+        setPreferredSize(panelSize);
         setBackground(Color.RED);
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();

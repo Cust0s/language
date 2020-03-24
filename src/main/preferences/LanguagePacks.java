@@ -148,6 +148,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
         section.add(sideWindowDropDown, gbc);
 
         //--show items left row--
+        //ToDo make setting global rather than local for each pack
         showItemsLeft = new JCheckBox("Show Items Left");
         showItemsLeft.setHorizontalTextPosition(SwingConstants.LEFT);
         gbc.gridx = 0;
@@ -198,7 +199,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
             }
 
             //store the desired file path
-            if(filePathLabel.getText() == ""){
+            if(filePathLabel.getText().equals("")){
                 //ToDo display error message
                 System.out.println("Please specify a file path");
                 return;
@@ -218,7 +219,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
                     System.out.println("file path invalid");
                     break;
                 case -2:
-                    System.out.println("displa name already in use");
+                    System.out.println("display name already in use");
                     break;
                 case -3:
                     System.out.println("object path already in properties file");
