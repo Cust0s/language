@@ -3,7 +3,6 @@ package main.studySpace;
 import main.ConfigFile;
 
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
