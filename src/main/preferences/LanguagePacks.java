@@ -81,9 +81,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
         JLabel sectionHeading = new JLabel("Add New Language Pack", SwingConstants.CENTER);
         //set font and size
         sectionHeading.setFont(new Font(sectionHeading.getFont().getFontName(),Font.BOLD, 15));
-        //sectionHeading.setMinimumSize(new Dimension(section.getWidth(), 40));
-        //sectionHeading.setPreferredSize(new Dimension(section.getWidth(), 40));
-        //sectionHeading.setMaximumSize(new Dimension(Short.MAX_VALUE, 40));
         sectionHeading.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         gbc.gridx = 0;
@@ -162,18 +159,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
         gbc.gridy = 7;
         submitButton.addActionListener(this);
         section.add(submitButton);
-
-        //add form
-        //category -> dropdown
-        //display name -> Textfield
-        //filepath -> button + JLabel
-
-        //aux window ->checkbox
-        //side windows -> dropdown
-        //display how many left -> checkbox
-
-        //Add button
-
     }
 
     public void actionPerformed(ActionEvent e){
@@ -182,10 +167,8 @@ public class LanguagePacks extends JPanel implements ActionListener {
         String filePath;
         if(e.getSource() == submitButton){
 
-
             //store the category
             category = categoryDropDown.getSelectedIndex() + 1; //add 1 because index starts at 0 but first category is 1
-
 
             //check if display name is valid (only a-z, A-Z, 0-9, '(', ')', '-' and '_')
             //ToDo add support for different languages
@@ -206,7 +189,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
             }
             filePath = filePathLabel.getText();
 
-            System.out.println("Called addLanguagePack");
             //ToDo display error message
             switch(myConfig.addLanguagePack(category, true, desiredDisplayName, filePath)){
                 case 0:
@@ -227,12 +209,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
                 case -4:
                     System.out.println("file already exists on computer");
                     break;
-
-
             }
-
-
-
         }
     }
 
@@ -287,7 +264,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
         packsTabbedPane.setToolTipTextAt(0, "Packs in the \"Special\" category.");
 
         myConfig.readLanguagePacks();
-        myConfig.getFilePaths();
 
         for(String[] thisData : myConfig.getFilePaths()){
             SpecialCheckBoxes temp = new SpecialCheckBoxes(Integer.parseInt(thisData[0]), Boolean.parseBoolean(thisData[1]), thisData[2], thisData[3], thisData[4], this);
@@ -296,15 +272,12 @@ public class LanguagePacks extends JPanel implements ActionListener {
                 case 1:
                     //add the new checkbox to the
                     wordsTab.add(temp);
-
                     break;
                 case 2:
                     phrasesTab.add(temp);
-
                     break;
                 case 3:
                     specialTab.add(temp);
-
                     break;
                 default:
                     //Type data was not an int between 1 and 3
@@ -312,11 +285,9 @@ public class LanguagePacks extends JPanel implements ActionListener {
             }
             allCheckBoxes.add(temp);
         }
-
         section.add(packsTabbedPane);
         System.out.println(Arrays.toString(allCheckBoxes.toArray()));
     }
-
 
     /**
      * JCheckBoxes that also hold the values of the configuration for the data represented by the checkbox
@@ -350,8 +321,4 @@ public class LanguagePacks extends JPanel implements ActionListener {
             parent.myConfig.updateLanguagePackSelected(category, selected, name, filePath, configKey);
         }
     }
-
-
-
-
 }

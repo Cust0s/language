@@ -9,44 +9,38 @@ import java.util.ArrayList;
 public class MainMenuContent extends JPanel {
     ConfigFile myConfig;
 
+    CheckBoxScrollPane wordsCheckBoxPane;
+    CheckBoxScrollPane phrasesCheckBoxPane;
+    CheckBoxScrollPane specialCheckBoxPane;
+    GridBagConstraints gbc;
+
     public MainMenuContent(ConfigFile myConfig, Dimension panelSize){
         this.myConfig = myConfig;
+        //add reference to myConfig so that it can update the displayed checkboxes
+        myConfig.addMainMenuContentReference(this);
         setPreferredSize(panelSize);
         setBackground(Color.RED);
         setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        gbc = new GridBagConstraints();
 
+        //create the three scroll panes to hold the available language packs
+        wordsCheckBoxPane = new CheckBoxScrollPane("Words");
+        phrasesCheckBoxPane = new CheckBoxScrollPane("Phrases");
+        specialCheckBoxPane = new CheckBoxScrollPane("Special");
 
-        //=== Words Section ===
+        //add the language packs to the three scroll panes
+        populateCheckBoxPanes();
+
+        //add the three scroll panes to the MainMenuContent
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.weightx = 0.1;
         gbc.weighty = 0.1;
-
-        CheckBoxScrollPane testPane = new CheckBoxScrollPane("Words");
-        testPane.addCheckBox("Box 1", false);
-        testPane.addCheckBox("Box 2", false);
-        testPane.addCheckBox("Box 3", false);
-        testPane.addCheckBox("Box 4", true);
-        add(testPane, gbc);
-
-        //=== Phrases Section ===
+        add(wordsCheckBoxPane, gbc);
         gbc.gridx = 2;
-        CheckBoxScrollPane testPane2 = new CheckBoxScrollPane("Phrases");
-        testPane2.addCheckBox("Box 1", false);
-        testPane2.addCheckBox("Box 2", false);
-        testPane2.addCheckBox("Box 3", false);
-        testPane2.addCheckBox("Box 4", true);
-        add(testPane2, gbc);
-
-        //=== Special Section ===
+        add(phrasesCheckBoxPane, gbc);
         gbc.gridx = 3;
-        CheckBoxScrollPane testPane3 = new CheckBoxScrollPane("Special");
-        testPane3.addCheckBox("Box 1", false);
-        testPane3.addCheckBox("Box 2", false);
-        testPane3.addCheckBox("Box 3", false);
-        testPane3.addCheckBox("Box 4", true);
-        add(testPane3, gbc);
+        add(specialCheckBoxPane, gbc);
 
 
         //=== Display Language ===
@@ -96,16 +90,72 @@ public class MainMenuContent extends JPanel {
         repaint();
     }
 
-    //checkbox list including heading
-    class CheckBoxScrollPane extends JPanel{
-        private JPanel scrollContent;
-        private ArrayList<JCheckBox> myCheckBoxes;
+    public void populateCheckBoxPanes(){
+        wordsCheckBoxPane.removeAllCheckBoxes();
+        phrasesCheckBoxPane.removeAllCheckBoxes();
+        specialCheckBoxPane.removeAllCheckBoxes();
 
+        myConfig.readLanguagePacks();
+        for(String[] languagePack : myConfig.getFilePaths()){
+            //[0] = category
+            //[1] = language pack shown
+            //[2] = display name
+            //[3] = file path
+            //[4] = properties key
+
+            //only proceed with the language packs that are enabled (shown)
+            if(Boolean.parseBoolean(languagePack[1])){
+                switch (Integer.parseInt(languagePack[0])){
+                    case 1:
+                        //category words
+                        wordsCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        break;
+                    case 2:
+                        //category phrases
+                        phrasesCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        break;
+                    case 3:
+                        //category special
+                        specialCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        break;
+                    default :
+                        //ToDo print error
+                        break;
+                }
+            }
+        }
+        revalidate();
+        repaint();
+    }
+
+    /**
+     * A scrollable pane with a heading that can hold and display checkboxes of type {@link SpecialCheckBox}.
+     * <p>
+     * The checkboxes can be updated by calling the {@link #removeAllCheckBoxes()} method and then repopulating
+     * the entire pane with new checkboxes.</p>
+     */
+    class CheckBoxScrollPane extends JPanel{
+        /**
+         * A scrollable JPanel that displays the checkboxes of type {@link SpecialCheckBox}.
+         */
+        private JPanel scrollContent;
+        /**
+         * Holds all the {@link SpecialCheckBox} for that {@link #scrollContent}.
+         * <p>Each SpecialCheckBox holds displayName, filePath and propertiesKey.</p>
+         */
+        private ArrayList<SpecialCheckBox> myCheckBoxes;
+
+
+        /**
+         * Constructor that creates the scroll pane that holds the checkboxes.
+         * Only the heading for the pane is added but no checkboxes.
+         * @param heading   The heading to be displayed above the pane
+         */
         CheckBoxScrollPane(String heading){
             myCheckBoxes = new ArrayList<>();
             setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-            JLabel name = new JLabel(heading);    //add label for the list
+            JLabel name = new JLabel(heading);    //add heading for the list
             add(name);
 
             //JLabel to populate with checkboxes
@@ -119,10 +169,55 @@ public class MainMenuContent extends JPanel {
             add(scrollPane);
         }
 
-        void addCheckBox(String name, boolean state){
-            JCheckBox tempBox = new JCheckBox(name, state);
+        /**
+         * Adds a new {@link SpecialCheckBox} to the scrollContent and also stores it in the {@link #myCheckBoxes} array.
+         * @param displayName       The name shown next to the checkbox
+         * @param filePath          The file path to the file that the checkbox represents
+         * @param propertiesKey     The properties key under which the language pack is stored in the {@link #myConfig} file
+         */
+        void addCheckBox(String displayName, String filePath, String propertiesKey){
+            SpecialCheckBox tempBox = new SpecialCheckBox(displayName, filePath, propertiesKey);
             myCheckBoxes.add(tempBox);      //save reference for later use
             scrollContent.add(tempBox);     //add to scrollable panel
+        }
+
+        /**
+         * Removes all {@link SpecialCheckBox} from the {@link #scrollContent} pane and also empties the checkbox array
+         */
+        void removeAllCheckBoxes(){
+            myCheckBoxes.clear();
+            scrollContent.removeAll();
+        }
+    }
+
+    /**
+     * Extends {@link JCheckBox}. Stores {@link #displayName}, {@link #filePath}, {@link #propertiesKey} for each checkbox.
+     */
+    class SpecialCheckBox extends JCheckBox{
+        /**
+         * The name that is to be displayed next to the checkbox
+         */
+        String displayName;
+        /**
+         * The file path to the file linked with this checkbox
+         */
+        String filePath;
+        /**
+         * The property key with which to find the language pack information in the {@link #myConfig} file
+         */
+        String propertiesKey;
+
+        /**
+         * Constructor that creates the checkbox and stores the {@link #displayName}, {@link #filePath} and {@link #propertiesKey}.
+         * @param displayName       The name shown next to the checkbox
+         * @param filePath          The file path to the file that the checkbox represents
+         * @param propertiesKey     The properties key under which the language pack is stored in the {@link #myConfig} file
+         */
+        SpecialCheckBox(String displayName, String filePath, String propertiesKey){
+            super(displayName, false);
+            this.displayName = displayName;
+            this.filePath = filePath;
+            this.propertiesKey = propertiesKey;
         }
     }
 }

@@ -24,16 +24,14 @@ public class MainFrame extends JFrame {
         currentContent = new JPanel();
         currentContent.setLayout(new GridBagLayout());
 
-        currentContent.add(new StudySpace(myConfig, sizeX, sizeY));
-        //currentContent.add(new MainMenuContent(myConfig, size));
+        //currentContent.add(new StudySpace(myConfig, sizeX, sizeY));
+        currentContent.add(new MainMenuContent(myConfig, size));
 
         getContentPane().add(currentContent);
         addMenu();
-
-
+        
         revalidate();
         repaint();
-
 
         pack();
         setVisible(true);
@@ -54,14 +52,11 @@ public class MainFrame extends JFrame {
             }
         });
 
-
-
         fileMenu.add(preferencesItem);
 
         menuBar.add(fileMenu);
 
         setJMenuBar(menuBar);
-
     }
 
     JFrame getThisParent(){

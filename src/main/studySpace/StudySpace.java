@@ -7,16 +7,15 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class StudySpace extends JPanel {
-    ConfigFile myConfig;
-    int side = 5;
-    ArrayList<JPanel> sideWindows;
+    private ConfigFile myConfig;
+    private int side = 5;
+    private ArrayList<JPanel> sideWindows;
 
     private int leftColumnWidth;
     private int rightColumnWidth;
 
-    float sizeX;
-    float sizeY;
-
+    private float sizeX;
+    private float sizeY;
 
     public StudySpace(ConfigFile myConfig, int sizeX, int sizeY){
         this.myConfig = myConfig;
@@ -45,9 +44,6 @@ public class StudySpace extends JPanel {
         rightColumn.setPreferredSize(new Dimension(rightColumnWidth, sizeY));
         rightColumn.setBackground(Color.lightGray);
 
-
-
-
         //create title bar [1] that holds display name and number
         JPanel titleBar = new JPanel();
         titleBar.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 1));
@@ -75,7 +71,6 @@ public class StudySpace extends JPanel {
         if(myConfig.isAuxWindowEnabled()){
             leftColumn.add(auxWindow);
         }
-
 
         //create a new buttonBar [4]
         JPanel buttonBar = new JPanel();

@@ -1,5 +1,7 @@
 package main;
 
+import mainMenu.MainMenuContent;
+
 import java.io.*;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
@@ -30,6 +32,8 @@ public class ConfigFile {
     private String configFilePath;         //path to the configuration file
     private File configFile;         //file object for the configuration file
     private int maxFileIndex = 0;    //holds the max index for FILE_INFORMATION_PREFIX
+
+    private MainMenuContent mainMenuContent = null;     //reference to update the three scroll panes in the main menu holding the checkboxes
 
 
     ConfigFile(String configFilePath){
@@ -83,6 +87,24 @@ public class ConfigFile {
 
     public String getLanguageB(){
         return languageB;
+    }
+
+    /**
+     * Adds a reference to the MainMenuContent in order to be able to update the
+     * checkboxes if the settings have changed something.
+     * @param mainMenuContent   The reference to the MainMenuContent
+     */
+    public void addMainMenuContentReference(MainMenuContent mainMenuContent){
+        this.mainMenuContent = mainMenuContent;
+    }
+
+    private void updateMainMenuCheckBoxes(){
+        if(mainMenuContent == null){
+            //ToDo print error
+            System.out.println("Erro updating the checkboxes!");
+            return;
+        }
+        mainMenuContent.populateCheckBoxPanes();
     }
 
     /**
@@ -268,6 +290,8 @@ public class ConfigFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        updateMainMenuCheckBoxes();
+
     }
 
     public boolean isAuxWindowEnabled() {
