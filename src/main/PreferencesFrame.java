@@ -1,5 +1,6 @@
 package main;
 
+import main.preferences.GeneralSettings;
 import main.preferences.LanguagePacks;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class PreferencesFrame extends JDialog {
         tabbedPane.setTabLayoutPolicy(JTabbedPane.WRAP_TAB_LAYOUT);
 
         //add general settings tab
-        JPanel pane1 = new JPanel();
+        GeneralSettings pane1 = new GeneralSettings(myConfig);
         tabbedPane.add("Settings", pane1);
         tabbedPane.setToolTipTextAt(0, "General Settings");
         tabbedPane.setTabComponentAt(0,new TabComponent(tabbedPane));

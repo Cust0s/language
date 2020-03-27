@@ -98,7 +98,7 @@ public class ConfigFile {
     private void updateMainMenuCheckBoxes(){
         if(mainMenuContent == null){
             //ToDo print error
-            System.out.println("Erro updating the checkboxes!");
+            System.out.println("Error updating the checkboxes!");
             return;
         }
         mainMenuContent.populateCheckBoxPanes();
@@ -296,5 +296,24 @@ public class ConfigFile {
             e.printStackTrace();
         }
         updateMainMenuCheckBoxes();
+    }
+
+    public boolean isDisplayInstantSolution(){
+        return displayInstantSolution;
+    }
+
+    public boolean setDisplayInstantSolution(boolean state){
+        try {
+            //add the new entry to the properties file and increase the maxFileIndex at the same time
+            myProperties.setProperty("displayInstantSolution", state + "");
+
+            FileWriter myWriter = new FileWriter(configFilePath);
+            myProperties.store(myWriter,"Update displayInstantSolution");    //store the properties that were created
+            myWriter.close();
+        } catch (IOException e) {
+            return false;
+        }
+        displayInstantSolution = state;
+        return true;
     }
 }

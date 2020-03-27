@@ -1,6 +1,5 @@
 package main.studySpace;
 
-import javafx.scene.control.TextFormatter;
 import main.ConfigFile;
 import main.MainFrame;
 
@@ -35,6 +34,7 @@ public class StudySpace extends JPanel {
     JLabel counterLabel;
     //main window label
     JLabel mainWindowLabel;
+    JLabel mainWindowSolutionLabel;
     JLabel auxLabel;
 
 
@@ -92,6 +92,7 @@ public class StudySpace extends JPanel {
 
         //create a new main window [2] that holds the main word
         JPanel mainWindow = new JPanel();
+        mainWindow.setLayout(new BoxLayout(mainWindow, BoxLayout.PAGE_AXIS));
         if(hasAux){
             mainWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
         } else {
@@ -99,7 +100,9 @@ public class StudySpace extends JPanel {
         }
         mainWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
         mainWindowLabel = new JLabel("Main Window");
+        mainWindowSolutionLabel = new JLabel("Solution Label");
         mainWindow.add(mainWindowLabel);
+        mainWindow.add(mainWindowSolutionLabel);
         leftColumn.add(mainWindow);
 
         //create a new aux window [3]
@@ -156,7 +159,7 @@ public class StudySpace extends JPanel {
         if(maxSideWindows != 0){
             add(rightColumn);
         }
-        updateWindows();
+        updateWindows(false);
     }
 
     /**
@@ -230,7 +233,7 @@ public class StudySpace extends JPanel {
     }
 
     //updates all the windows with the data from the currently selected row
-    private void updateWindows(){
+    private void updateWindows(boolean displaySolution){
         if (index < data.size() && index >= 0){
             String temp[] = data.get(index);
 
@@ -241,15 +244,33 @@ public class StudySpace extends JPanel {
             switch(selectedLanguage){
                 case 0:     //mixed language
                     Random rnd = new Random();
-                    mainWindowLabel.setText(temp[rnd.nextInt((1 - 0) + 1) + 0]);
+                    int rndNumber = rnd.nextInt((1 - 0) + 1) + 0;
+                    mainWindowLabel.setText(temp[rndNumber]);
+                    if(displaySolution){
+                        mainWindowSolutionLabel.setText(temp[1-rndNumber]);
+                    } else{
+                        mainWindowSolutionLabel.setText("");
+                    }
                     break;
                 case 1:     //language A
                     mainWindowLabel.setText(temp[0]);
+                    if(displaySolution){
+                        mainWindowSolutionLabel.setText(temp[1]);
+                    } else{
+                        mainWindowSolutionLabel.setText("");
+                    }
                     break;
                 case 2:     //language B
                     mainWindowLabel.setText(temp[1]);
+                    if(displaySolution){
+                        mainWindowSolutionLabel.setText(temp[0]);
+                    } else{
+                        mainWindowSolutionLabel.setText("");
+                    }
                     break;
             }
+
+
 
 
             //update the aux window
@@ -279,6 +300,10 @@ public class StudySpace extends JPanel {
 
     private class ChangeContentActionListener implements ActionListener{
         int direction;
+        //whether to advance to the next item or display the solution
+        boolean displayNextSolution = false;
+        boolean displayPreviousSolution = true;
+
         ChangeContentActionListener(int direction){
             this.direction = direction;
         }
@@ -286,15 +311,46 @@ public class StudySpace extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+//            if(myConfig.isDisplayInstantSolution() && !displayNextSolution && index <= numberOfRows - 1){
+//                    updateWindows(true);
+//                    displayNextSolution = true;
+//                displayPreviousSolution = true;
+//            } else if(myConfig.isDisplayInstantSolution() && !displayPreviousSolution && index >= 0){
+//                updateWindows(false);
+//                displayPreviousSolution = true;
+//                displayNextSolution = true;
+//
+//            } else {
 
-            if(direction == 1 && index < numberOfRows - 1 ) { //next
-                index++;
-            } else if (direction == -1 && index > 0){    //previous
-                index--;
-            }
-            updateWindows();
+                if(direction == 1/* && index < numberOfRows - 1 */) { //next
+                    if(displayNextSolution){
+                        updateWindows(true);
+                        displayNextSolution = false;
+                    } else {
+                        if(index < numberOfRows - 1){
+                            index++;
+                        }
+                        displayNextSolution = true;
+                        updateWindows(false);
+                    }
+                } else if (direction == -1/* && index > 0*/){    //previous
 
 
+                    if(displayNextSolution){
+                        updateWindows(false);
+                        displayNextSolution = false;
+                    } else {
+                        if(index > 0){
+                            index--;
+                        }
+                        displayNextSolution = true;
+                        updateWindows(true);
+                    }
+                }
+
+                //displayNextSolution = false;
+
+            //}
         }
     }
 }
