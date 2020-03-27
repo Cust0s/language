@@ -1,21 +1,31 @@
 package mainMenu;
 
 import main.ConfigFile;
+import main.Main;
+import main.MainFrame;
+import main.studySpace.StudySpace;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class MainMenuContent extends JPanel {
+public class MainMenuContent extends JPanel{
     ConfigFile myConfig;
+    MainFrame frame;
 
     CheckBoxScrollPane wordsCheckBoxPane;
     CheckBoxScrollPane phrasesCheckBoxPane;
     CheckBoxScrollPane specialCheckBoxPane;
     GridBagConstraints gbc;
 
-    public MainMenuContent(ConfigFile myConfig, Dimension panelSize){
+
+
+    public MainMenuContent(ConfigFile myConfig, Dimension panelSize, MainFrame frame){
         this.myConfig = myConfig;
+        this.frame = frame;
+
         //add reference to myConfig so that it can update the displayed checkboxes
         myConfig.addMainMenuContentReference(this);
         setPreferredSize(panelSize);
@@ -74,14 +84,73 @@ public class MainMenuContent extends JPanel {
         gbc.gridy = 3;
         add(amountTextField, gbc);
 
+
+
         //=== Buttons Section ===
+
         JButton deselectButton = new JButton("Deselect All");
+        deselectButton.addActionListener(new SelectionActionListener(false));
         gbc.gridx = 3;
         gbc.gridy = 2;
         add(deselectButton, gbc);
 
-        JButton startButton = new JButton("Start");
+
+        JButton selectButton = new JButton("Select All");
+        selectButton.addActionListener(new SelectionActionListener(true));
+        gbc.gridx = 3;
         gbc.gridy = 3;
+        add(selectButton, gbc);
+
+
+
+        JButton startButton = new JButton("Start");
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<String> filePaths = new ArrayList<>();
+                filePaths.addAll(wordsCheckBoxPane.getSelectedFilePaths());
+                filePaths.addAll(phrasesCheckBoxPane.getSelectedFilePaths());
+                filePaths.addAll(specialCheckBoxPane.getSelectedFilePaths());
+
+                if(filePaths.isEmpty()){
+                    //custom title, warning icon
+                    JOptionPane.showMessageDialog(frame,
+                            "Please select at least one language pack!",
+                            "No Language Pack Selected",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                int numberOfItems;
+                try {
+                    numberOfItems = Integer.parseInt(amountTextField.getText());
+                    if(numberOfItems < 1){
+                        throw new NumberFormatException();
+                    }
+                }catch (NumberFormatException err){
+                    amountTextField.setBackground(Color.RED);
+                    JOptionPane.showMessageDialog(frame,
+                            "Please enter a valid integer larger than 0 in the repetitions field!",
+                            "Invalid Number",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                int selectedLanguage = Main.MIXED;
+                if(checkboxLanguageA.isSelected()){
+                    selectedLanguage = Main.LANGUAGE_A;
+                } else if(checkboxLanguageB.isSelected()){
+                    selectedLanguage = Main.LANGUAGE_B;
+                } else if(checkboxLanguageAB.isSelected()){
+                    selectedLanguage = Main.MIXED;
+                }
+
+
+                frame.startStudySpace(filePaths, selectedLanguage, numberOfItems);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        gbc.gridy = 4;
         add(startButton, gbc);
 
 
@@ -170,6 +239,16 @@ public class MainMenuContent extends JPanel {
         }
 
         /**
+         * Selects or deselects all the checkboxes
+         * @param state     Desired selection state of the checkboxes
+         */
+        public void selectDeselectAllCheckboxes(boolean state){
+            for(SpecialCheckBox checkBox : myCheckBoxes){
+                checkBox.setSelected(state);
+            }
+        }
+
+        /**
          * Adds a new {@link SpecialCheckBox} to the scrollContent and also stores it in the {@link #myCheckBoxes} array.
          * @param displayName       The name shown next to the checkbox
          * @param filePath          The file path to the file that the checkbox represents
@@ -187,6 +266,16 @@ public class MainMenuContent extends JPanel {
         void removeAllCheckBoxes(){
             myCheckBoxes.clear();
             scrollContent.removeAll();
+        }
+
+        public ArrayList<String> getSelectedFilePaths(){
+            ArrayList<String> filePaths = new ArrayList<>();
+            for(SpecialCheckBox thisCheckBox : myCheckBoxes){
+                if(thisCheckBox.isSelected()) {
+                    filePaths.add(thisCheckBox.filePath);
+                }
+            }
+            return filePaths;
         }
     }
 
@@ -218,6 +307,27 @@ public class MainMenuContent extends JPanel {
             this.displayName = displayName;
             this.filePath = filePath;
             this.propertiesKey = propertiesKey;
+        }
+    }
+
+    private class SelectionActionListener implements ActionListener{
+        private boolean selectionStatus;
+        SelectionActionListener(boolean selectionStatus){
+            this.selectionStatus = selectionStatus;
+        }
+        public void actionPerformed(ActionEvent e){
+            System.out.println("Clicked " + selectionStatus);
+            wordsCheckBoxPane.selectDeselectAllCheckboxes(selectionStatus);
+            phrasesCheckBoxPane.selectDeselectAllCheckboxes(selectionStatus);
+            specialCheckBoxPane.selectDeselectAllCheckboxes(selectionStatus);
+        }
+    }
+
+    private class SpecialRadioButton extends JRadioButton{
+        int id;
+        SpecialRadioButton(String text, boolean selected, int id){
+            super(text, selected);
+            this.id = id;
         }
     }
 }

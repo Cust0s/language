@@ -24,9 +24,7 @@ public class ConfigFile {
     private String languageB;
 
     //ToDo Add global setting to instantly display solution or not
-    //ToDo Add global setting to change this variable
-    private boolean auxWindowEnabled = true;    //indicates the setting for displaying of the aux window in the study space
-
+    private boolean displayInstantSolution;
 
     private Properties myProperties; //Properties object
     private String configFilePath;         //path to the configuration file
@@ -53,10 +51,9 @@ public class ConfigFile {
             }
 
             updateMaxIndex();
-
-            System.out.println("Reading File Information");
+            //read the language packs
             readLanguagePacks();
-            System.out.println("");
+            displayInstantSolution = Boolean.parseBoolean(myProperties.getProperty("displayInstantSolution"));
 
 
             System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt"));
@@ -227,6 +224,11 @@ public class ConfigFile {
                 //file already exists
                 //ToDo inform the user of the error
                 return -4;
+            } else{
+                //ToDo generate as many [Side x] as there are selected window numbers
+                FileWriter writer = new FileWriter(tempFile);
+                writer.write("[Language A][Language B][Aux][Side 1][Side 2][Side 3][Side 4][Side 5]");
+                writer.close();
             }
         } catch (IOException e) {
             return 0;
@@ -253,6 +255,9 @@ public class ConfigFile {
         try {
             //set the default properties here
             //myProperties.setProperty("key","value");
+
+            myProperties.setProperty("displayInstantSolution", "true");
+
 
 
             FileWriter myWriter = new FileWriter(configFilePath);     //create new FileWriter
@@ -291,10 +296,5 @@ public class ConfigFile {
             e.printStackTrace();
         }
         updateMainMenuCheckBoxes();
-
-    }
-
-    public boolean isAuxWindowEnabled() {
-        return auxWindowEnabled;
     }
 }

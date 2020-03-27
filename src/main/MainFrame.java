@@ -6,6 +6,7 @@ import mainMenu.MainMenuContent;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
     public ConfigFile myConfig;
@@ -24,12 +25,12 @@ public class MainFrame extends JFrame {
         currentContent = new JPanel();
         currentContent.setLayout(new GridBagLayout());
 
-        //currentContent.add(new StudySpace(myConfig, sizeX, sizeY));
-        currentContent.add(new MainMenuContent(myConfig, size));
+
+        currentContent.add(new MainMenuContent(myConfig, size, this));
 
         getContentPane().add(currentContent);
         addMenu();
-        
+
         revalidate();
         repaint();
 
@@ -37,7 +38,17 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    public void addMenu(){
+    public void startMainMenu(){
+        currentContent.removeAll();
+        currentContent.add(new MainMenuContent(myConfig, size, this));
+    }
+
+    public void startStudySpace(ArrayList<String> filePaths, int language, int numberOfItems){
+        currentContent.removeAll();
+        currentContent.add(new StudySpace(myConfig, this, sizeX, sizeY, filePaths, language, numberOfItems));
+    }
+
+    private void addMenu(){
         JMenuBar menuBar = new JMenuBar();
 
         //---File Menu---

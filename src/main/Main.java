@@ -8,6 +8,10 @@ public class Main {
     public static final int PHRASES = 2;
     public static final int SPECIAL = 3;
 
+    public static final int LANGUAGE_A = 1;
+    public static final int LANGUAGE_B = 2;
+    public static final int MIXED = 0;
+
     //public static String fontName =
     public static ConfigFile myConfig;
 
