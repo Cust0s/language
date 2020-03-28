@@ -9,9 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
 
 public class StudySpace extends JPanel {
     private ConfigFile myConfig;
@@ -22,7 +20,6 @@ public class StudySpace extends JPanel {
     private int selectedLanguage;
     private int numberOfRows;
 
-    private ArrayList<ArrayList<String>> currentSessionData;
 
     private int leftColumnWidth;
     private int rightColumnWidth;
@@ -30,18 +27,20 @@ public class StudySpace extends JPanel {
     private float sizeX;
     private float sizeY;
 
-    //counter in the header section
+    //swing components holding the dynamic text in the study space
     JLabel counterLabel;
-    //main window label
     JLabel mainWindowLabel;
     JLabel mainWindowSolutionLabel;
     JLabel auxLabel;
+
+    //flags the current status of the solution: is it displayed or not
+    boolean solutionDisplayed = false;
 
 
     //storage for the data processed from the selected files
     private boolean hasAux = false;     //whether an aux window is needed
     private int maxSideWindows = 0;     //how many side windows are needed
-    private ArrayList<String[]> data = new ArrayList<>();   //each row of data split into seperate strings
+    private ArrayList<DataRow> data = new ArrayList<>();   //each row of data split into seperate strings
     private int index = 0;
 
     public StudySpace(ConfigFile myConfig, MainFrame frame, int sizeX, int sizeY, ArrayList<String> filePaths, int language, int numberOfRows){
@@ -164,10 +163,8 @@ public class StudySpace extends JPanel {
 
     /**
      * Processes the given file paths by opening each file and reading the data into an ArrayList containing
-     * an Array for each row. Each line is split at the following points:
-     * <p>[Main]<br>
-     * [Aux]<br>
-     * [Side x] where x is the number of the side window</p>
+     * a {@link DataRow} for each row read from the file. Each line is split inside of the {@link DataRow} constructor
+     * and gets stored there.
      */
     public void processFiles(){
 
@@ -177,49 +174,13 @@ public class StudySpace extends JPanel {
 
                 String thisLine;
                 while ((thisLine = reader.readLine()) != null) {
-                    String[] temp = thisLine.split("\\[Language A\\]|\\[Language B\\]|\\[Aux\\]|\\[Side \\d\\]");
-
-                    //anything < 3 will not have at least two strings for language A and B
-                    if(temp.length >= 3){    //temp will contain at least [, language A, language B, ...] >= 3
-                        String[] rowContents = Arrays.copyOfRange(temp, 1, temp.length);
-
-                        //case: languageA, languageB, aux, side x
-                        //      [languageA, languageB, aux, side x, ...]
-                        //array.length >= 4
-
-                        //case: languageA, languageB, side x
-                        //      [languageA, languageB, , side x, ...]
-                        //array.length >= 4
-
-                        //case: languageA, languageB, aux
-                        //      [languageA, languageB, aux]
-                        //array.length = 3
-
-                        //case: languageA, languageB
-                        //      [language A, languageB]
-                        //array.length = 2
-
-
-                        data.add(rowContents);
-                        if((rowContents.length >= 4 && !rowContents[2].equals("")) || rowContents.length == 3){
-                            //if there are 3 entries in the array, temp[1] (aux) is in bounds. If the string
-                            //is not empty, then aux content exists
-
-                            //aux needed
-                            hasAux = true;
-                        }
-
-                        if(rowContents.length - 3 > maxSideWindows){
-                            maxSideWindows = rowContents.length -3;
-                        }
-                        System.out.println(Arrays.toString(rowContents));
-                        System.out.println("Max side windows: " + maxSideWindows + " aux: " + hasAux);
-                    }
+                    //data is split in the DataRow constructor
+                    DataRow thisRow = new DataRow(thisLine, this);
+                    data.add(thisRow);
                 }
+                //shuffle the rows
                 Collections.shuffle(data);
                 reader.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -235,61 +196,60 @@ public class StudySpace extends JPanel {
     //updates all the windows with the data from the currently selected row
     private void updateWindows(boolean displaySolution){
         if (index < data.size() && index >= 0){
-            String temp[] = data.get(index);
-
+            DataRow thisRow = data.get(index);
 
             counterLabel.setText((index + 1) + "/" + numberOfRows);
 
             //update the main window
             switch(selectedLanguage){
                 case 0:     //mixed language
-                    Random rnd = new Random();
-                    int rndNumber = rnd.nextInt((1 - 0) + 1) + 0;
-                    mainWindowLabel.setText(temp[rndNumber]);
+                    //display the main language
+                    if(thisRow.getRandomNumber() == 0){
+                        mainWindowLabel.setText(thisRow.getLanguageA());
+                    } else if(thisRow.getRandomNumber() == 1){
+                        mainWindowLabel.setText(thisRow.getLanguageB());
+                    }
+
+                    //display the solution if required
                     if(displaySolution){
-                        mainWindowSolutionLabel.setText(temp[1-rndNumber]);
+                        if(thisRow.getRandomNumber() == 0){
+                            mainWindowLabel.setText(thisRow.getLanguageB());
+                        } else if(thisRow.getRandomNumber() == 1){
+                            mainWindowLabel.setText(thisRow.getLanguageA());
+                        }
                     } else{
                         mainWindowSolutionLabel.setText("");
                     }
                     break;
                 case 1:     //language A
-                    mainWindowLabel.setText(temp[0]);
+                    mainWindowLabel.setText(thisRow.getLanguageA());
                     if(displaySolution){
-                        mainWindowSolutionLabel.setText(temp[1]);
+                        mainWindowSolutionLabel.setText(thisRow.getLanguageB());
                     } else{
                         mainWindowSolutionLabel.setText("");
                     }
                     break;
                 case 2:     //language B
-                    mainWindowLabel.setText(temp[1]);
+                    mainWindowLabel.setText(thisRow.getLanguageB());
                     if(displaySolution){
-                        mainWindowSolutionLabel.setText(temp[0]);
+                        mainWindowSolutionLabel.setText(thisRow.getLanguageA());
                     } else{
                         mainWindowSolutionLabel.setText("");
                     }
                     break;
             }
 
-
-
-
-            //update the aux window
-            if(temp.length > 3){
-                auxLabel.setText(temp[3]);
-            } else {
-                //in case this row does not have any aux or side windows, make aux blank
-                auxLabel.setText("");
-            }
+            auxLabel.setText(thisRow.getAux());
 
             //loop through the available side windows
             for(int i = 0; i < sideWindows.size(); i++){
                 for(Component object: sideWindows.get(i).getComponents()){
                     if(object instanceof JLabel){
-                        if((i + 3) < temp.length) {
-                            ((JLabel) object).setText(temp[i + 3]);
+                        if(thisRow.getSideWindows() != null && i < thisRow.getSideWindows().size()){
+                            ((JLabel) object).setText(thisRow.getSideWindows().get(i));
                         } else{
                             //in case this row does not have enough side windows, make the windows blank
-                            ((JLabel) object).setText("");
+                            ((JLabel) object).setText(null);
                         }
                     }
                 }
@@ -297,60 +257,67 @@ public class StudySpace extends JPanel {
         }
     }
 
+    public int getMaxSideWindows(){
+        return maxSideWindows;
+    }
+
+    public void setMaxSideWindows(int maxSideWindows){
+        this.maxSideWindows = maxSideWindows;
+    }
+
+    public void setHasAux(boolean hasAux){
+        this.hasAux = hasAux;
+    }
+
 
     private class ChangeContentActionListener implements ActionListener{
         int direction;
-        //whether to advance to the next item or display the solution
-        boolean displayNextSolution = false;
-        boolean displayPreviousSolution = true;
-
         ChangeContentActionListener(int direction){
             this.direction = direction;
         }
 
-
         @Override
         public void actionPerformed(ActionEvent e) {
-//            if(myConfig.isDisplayInstantSolution() && !displayNextSolution && index <= numberOfRows - 1){
-//                    updateWindows(true);
-//                    displayNextSolution = true;
-//                displayPreviousSolution = true;
-//            } else if(myConfig.isDisplayInstantSolution() && !displayPreviousSolution && index >= 0){
-//                updateWindows(false);
-//                displayPreviousSolution = true;
-//                displayNextSolution = true;
-//
-//            } else {
 
-                if(direction == 1/* && index < numberOfRows - 1 */) { //next
-                    if(displayNextSolution){
-                        updateWindows(true);
-                        displayNextSolution = false;
-                    } else {
-                        if(index < numberOfRows - 1){
+            if(myConfig.isDisplayInstantSolution()){
+                if(direction == 1){
+                    if(solutionDisplayed){
+                        if(index < numberOfRows -1) {
                             index++;
+                            updateWindows(false);
+                            solutionDisplayed = false;
                         }
-                        displayNextSolution = true;
-                        updateWindows(false);
-                    }
-                } else if (direction == -1/* && index > 0*/){    //previous
-
-
-                    if(displayNextSolution){
-                        updateWindows(false);
-                        displayNextSolution = false;
                     } else {
+                        updateWindows(true);
+                        solutionDisplayed = true;
+                    }
+                } else if(direction == -1){
+                    if(solutionDisplayed){
+                        updateWindows(false);
+                        solutionDisplayed = false;
+                    } else{
                         if(index > 0){
                             index--;
+                            updateWindows(true);
+                            solutionDisplayed = true;
                         }
-                        displayNextSolution = true;
-                        updateWindows(true);
                     }
                 }
-
-                //displayNextSolution = false;
-
-            //}
+            } else {
+                if(direction == 1 && index < numberOfRows -1){
+                        index++;
+                        updateWindows(false);
+                        //update solution displayed in case the displayInstantSolution
+                        //property is changed while in study space
+                        solutionDisplayed = false;
+                } else if(direction == -1 && index > 0){
+                        index--;
+                        updateWindows(false);
+                        //update solution displayed in case the displayInstantSolution
+                        //property is changed while in study space
+                        solutionDisplayed = true;
+                }
+            }
         }
     }
 }
