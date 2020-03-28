@@ -12,7 +12,18 @@ class DataRow{
     private int noOfSideWindows = 0;
     private ArrayList<String> sideWindows = null;
 
-    DataRow(String thisLine, StudySpace studySpace){
+    private String auxName = null;
+    private ArrayList<String> windowNames = null;
+
+    DataRow(String thisLine, StudySpace studySpace, String windowNames){
+
+        //store the window names for each item
+        this.windowNames = new ArrayList<>(Arrays.asList(windowNames.split("\\[name aux\\]|\\[name side \\d\\]")));
+        //remove the empty first string that gets created by String.split()
+        this.windowNames.remove(0);
+
+
+
         //sideWindows = new ArrayList<>(Collections.nCopies(noOfSideWindows, null));
         //set the random number used in the mixed language setting
         Random rnd = new Random();
@@ -113,6 +124,10 @@ class DataRow{
         }else {
             return sideWindows;
         }
+    }
+
+    public ArrayList<String> getWindowNames() {
+        return windowNames;
     }
 
     public int getRandomNumber() {

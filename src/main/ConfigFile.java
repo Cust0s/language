@@ -1,5 +1,6 @@
 package main;
 
+import main.studySpace.StudySpace;
 import mainMenu.MainMenuContent;
 
 import java.io.*;
@@ -23,8 +24,8 @@ public class ConfigFile {
     private String languageA;
     private String languageB;
 
-    //ToDo Add global setting to instantly display solution or not
     private boolean displayInstantSolution;
+    private boolean displayWindowTitles;
 
     private Properties myProperties; //Properties object
     private String configFilePath;         //path to the configuration file
@@ -54,6 +55,7 @@ public class ConfigFile {
             //read the language packs
             readLanguagePacks();
             displayInstantSolution = Boolean.parseBoolean(myProperties.getProperty("displayInstantSolution"));
+            displayWindowTitles = Boolean.parseBoolean(myProperties.getProperty("displayWindowTitles"));
 
 
             System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt", "[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
@@ -258,6 +260,7 @@ public class ConfigFile {
             //myProperties.setProperty("key","value");
 
             myProperties.setProperty("displayInstantSolution", "true");
+            myProperties.setProperty("displayWindowTitles", "true");
 
 
 
@@ -299,13 +302,44 @@ public class ConfigFile {
         updateMainMenuCheckBoxes();
     }
 
+
+    //reference to the study space. Used to update the data
+    private StudySpace studySpace = null;
+
+    public void addStudySpace(StudySpace studySpace){
+        this.studySpace = studySpace;
+    }
+
+    public boolean isDisplayWindowTitles(){
+        return displayWindowTitles;
+    }
+
+    public boolean setDisplayWindowTitles(boolean state){
+        try {
+            //add the new entry to the properties file
+            myProperties.setProperty("displayWindowTitles", state + "");
+
+            FileWriter myWriter = new FileWriter(configFilePath);
+            myProperties.store(myWriter,"Update displayWindowTitles");    //store the properties that were created
+            myWriter.close();
+        } catch (IOException e) {
+            return false;
+        }
+        displayWindowTitles = state;
+        //if study space exists, update it
+        if(studySpace != null){
+            studySpace.updateStudySpace();
+        }
+        return true;
+    }
+
     public boolean isDisplayInstantSolution(){
         return displayInstantSolution;
     }
 
     public boolean setDisplayInstantSolution(boolean state){
         try {
-            //add the new entry to the properties file and increase the maxFileIndex at the same time
+            //add the new entry to the properties file
             myProperties.setProperty("displayInstantSolution", state + "");
 
             FileWriter myWriter = new FileWriter(configFilePath);

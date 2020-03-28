@@ -15,14 +15,10 @@ public class StudySpace extends JPanel {
     private ConfigFile myConfig;
     private MainFrame frame;
     private ArrayList<String> filePaths;
-    private int side = 5;
-    private ArrayList<JPanel> sideWindows;
+    private ArrayList<SidePanel> sideWindows;
     private int selectedLanguage;
     private int numberOfRows;
 
-
-    private int leftColumnWidth;
-    private int rightColumnWidth;
 
     private float sizeX;
     private float sizeY;
@@ -32,6 +28,8 @@ public class StudySpace extends JPanel {
     JLabel mainWindowLabel;
     JLabel mainWindowSolutionLabel;
     JLabel auxLabel;
+
+    JLabel auxWindowNameLabel;
 
     //flags the current status of the solution: is it displayed or not
     boolean solutionDisplayed = false;
@@ -50,6 +48,7 @@ public class StudySpace extends JPanel {
         this.sizeY = sizeY;
         this.filePaths = filePaths;
         this.selectedLanguage = language;
+        myConfig.addStudySpace(this);
         processFiles();
         //set the number of items that should be queried.
         if(numberOfRows < data.size()){
@@ -64,7 +63,8 @@ public class StudySpace extends JPanel {
 
         JPanel leftColumn = new JPanel();
         leftColumn.setLayout(new BoxLayout(leftColumn, BoxLayout.PAGE_AXIS));
-        if(side == 0){
+        int leftColumnWidth;
+        if(maxSideWindows == 0){
             leftColumnWidth = sizeX;
         } else {
             leftColumnWidth = Math.round(this.sizeX / 3 * 2);
@@ -74,7 +74,7 @@ public class StudySpace extends JPanel {
 
         JPanel rightColumn = new JPanel();
         rightColumn.setLayout(new BoxLayout(rightColumn,BoxLayout.PAGE_AXIS));
-        rightColumnWidth = Math.round(this.sizeX / 3);
+        int rightColumnWidth = Math.round(this.sizeX / 3);
         rightColumn.setPreferredSize(new Dimension(rightColumnWidth, sizeY));
         rightColumn.setBackground(Color.lightGray);
 
@@ -111,10 +111,20 @@ public class StudySpace extends JPanel {
 
         //create a new aux window [3]
         JPanel auxWindow = new JPanel();
+        JPanel auxWindowContent = new JPanel();
+        //auxWindowContent is needed because the PAGE_AXIS BoxLayout only regards
+        //the preferred height, not the preferred width
+        auxWindowContent.setLayout(new BoxLayout(auxWindowContent, BoxLayout.PAGE_AXIS));
         auxWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
         auxWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
+        //label for the title of the window
+        auxWindowNameLabel = new JLabel("Aux Window");
+        auxWindowContent.add(auxWindowNameLabel);
+
+        //label for the content text of the window
         auxLabel = new JLabel("Aux Window");
-        auxWindow.add(auxLabel);
+        auxWindowContent.add(auxLabel);
+        auxWindow.add(auxWindowContent);
         if(hasAux){
             leftColumn.add(auxWindow);
         }
@@ -147,17 +157,16 @@ public class StudySpace extends JPanel {
         //create a new sideWindow [5]
         sideWindows = new ArrayList<>(maxSideWindows);
         for(int i = 0; i < maxSideWindows; i++){
-            JPanel sideWindow = new JPanel();
-            sideWindow.setPreferredSize(new Dimension(rightColumnWidth, Math.round(this.sizeY / side)));
-            //sideWindow.setBackground(new Color(255 - i*20,0,0));
-            sideWindows.add(sideWindow);
+            SidePanel sideWindowContent = new SidePanel("Side Window " + (i+1) + " title", "Side Window " + (i+1));
+            sideWindowContent.setPreferredSize(new Dimension(rightColumnWidth, Math.round(this.sizeY / maxSideWindows)));
+
             if(i == 0){
-                sideWindow.setBorder(BorderFactory.createMatteBorder(1,0,1,1,Color.BLACK));
+                sideWindowContent.setBorder(BorderFactory.createMatteBorder(1,0,1,1,Color.BLACK));
             } else {
-                sideWindow.setBorder(BorderFactory.createMatteBorder(0,0,1,1,Color.BLACK));
+                sideWindowContent.setBorder(BorderFactory.createMatteBorder(0,0,1,1,Color.BLACK));
             }
-            sideWindow.add(new JLabel("Side Window " + (i+1)));
-            rightColumn.add(sideWindow);
+            sideWindows.add(sideWindowContent);
+            rightColumn.add(sideWindowContent);
         }
         add(leftColumn);
         if(maxSideWindows != 0){
@@ -177,10 +186,11 @@ public class StudySpace extends JPanel {
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(path));
 
+                String firstLine = reader.readLine();
                 String thisLine;
                 while ((thisLine = reader.readLine()) != null) {
                     //data is split in the DataRow constructor
-                    DataRow thisRow = new DataRow(thisLine, this);
+                    DataRow thisRow = new DataRow(thisLine, this, firstLine);
                     data.add(thisRow);
                 }
                 //shuffle the rows
@@ -245,19 +255,36 @@ public class StudySpace extends JPanel {
             }
 
             auxLabel.setText(thisRow.getAux());
+            //set aux window title text null and then update it if isDisplayWindowTitles is turned on
+            auxWindowNameLabel.setText(null);
+            //get the aux window name which is always index 0
+            if(myConfig.isDisplayWindowTitles()){
+                auxWindowNameLabel.setText(thisRow.getWindowNames().get(0));
+            }
 
             //loop through the available side windows
-            for(int i = 0; i < sideWindows.size(); i++){
-                for(Component object: sideWindows.get(i).getComponents()){
-                    if(object instanceof JLabel){
-                        if(thisRow.getSideWindows() != null && i < thisRow.getSideWindows().size()){
-                            ((JLabel) object).setText(thisRow.getSideWindows().get(i));
-                        } else{
-                            //in case this row does not have enough side windows, make the windows blank
-                            ((JLabel) object).setText(null);
+            int i = 0;
+            for(SidePanel panel: sideWindows){
+                //set title and content labels' text to null
+                panel.titleLabel.setText(null);
+                panel.contentLabel.setText(null);
+                //check if getSideWindows() does not return null and if index i is within range of getSideWindows()
+                if(thisRow.getSideWindows() != null && i < thisRow.getSideWindows().size()){
+                    //content text from the current row of the file
+                    String content = thisRow.getSideWindows().get(i);
+                    //check if the text exists
+                    if(content != null){
+                        //display the text on the content label
+                        panel.contentLabel.setText(content);
+
+                        //check if a side window title exists for that side window and display that title
+                        if(i+1 < thisRow.getWindowNames().size() && myConfig.isDisplayWindowTitles()){
+                            //i+1 because the first entry of getWindowNames() is the aux label title
+                            panel.titleLabel.setText(thisRow.getWindowNames().get(i+1));
                         }
                     }
                 }
+                i++;
             }
         }
     }
@@ -272,6 +299,10 @@ public class StudySpace extends JPanel {
 
     public void setHasAux(boolean hasAux){
         this.hasAux = hasAux;
+    }
+
+    public void updateStudySpace(){
+        updateWindows(solutionDisplayed);
     }
 
 
