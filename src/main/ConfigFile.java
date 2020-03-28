@@ -56,13 +56,13 @@ public class ConfigFile {
             displayInstantSolution = Boolean.parseBoolean(myProperties.getProperty("displayInstantSolution"));
 
 
-            System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt"));
-            System.out.println("add words lesson 2: " + addLanguagePack(Main.WORDS,true,"lesson 2", "words_lesson_2.txt"));
-            System.out.println("add words lesson invalid: " + addLanguagePack(Main.WORDS,true,"lesson invalid", "words_lesson_1.txt"));
+            System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt", "[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            System.out.println("add words lesson 2: " + addLanguagePack(Main.WORDS,true,"lesson 2", "words_lesson_2.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            System.out.println("add words lesson invalid: " + addLanguagePack(Main.WORDS,true,"lesson invalid", "words_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
-            System.out.println("add phrases lesson 1: " + addLanguagePack(Main.PHRASES,true,"lesson 1", "phrases_lesson_1.txt"));
+            System.out.println("add phrases lesson 1: " + addLanguagePack(Main.PHRASES,true,"lesson 1", "phrases_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
-            System.out.println("add special lesson 3: " + addLanguagePack(Main.SPECIAL,true,"lesson 3","special_lesson_3.txt"));
+            System.out.println("add special lesson 3: " + addLanguagePack(Main.SPECIAL,true,"lesson 3","special_lesson_3.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
             updateMaxIndex();
             System.out.println("Reading File Information");
@@ -95,7 +95,7 @@ public class ConfigFile {
         this.mainMenuContent = mainMenuContent;
     }
 
-    private void updateMainMenuCheckBoxes(){
+    public void updateMainMenuCheckBoxes(){
         if(mainMenuContent == null){
             //ToDo print error
             System.out.println("Error updating the checkboxes!");
@@ -185,7 +185,7 @@ public class ConfigFile {
      * @param category          The category for the file (1=Words, 2=Phrases, 3=Special)
      * @param enabled           Indicates enabled status for the file
      * @param displayName       The display displayName for the file
-     * @param desiredFilePath   The path to the file
+     * @param desiredFileName   The path to the file
      * @return   0 if IO error occurs
      *           1 if the information was successfully stored,
      *          -1 if the file path is invalid
@@ -193,10 +193,10 @@ public class ConfigFile {
      *          -3 if the object path is already in use (in properties file)
      *          -4 if the file already exists (on the computer)
      */
-    public int addLanguagePack(int category, boolean enabled, String displayName, String desiredFilePath){
+    public int addLanguagePack(int category, boolean enabled, String displayName, String desiredFileName, String windowNames){
         //Check if the desired new file path is valid
         try{
-            Paths.get(desiredFilePath);
+            Paths.get(desiredFileName);
         } catch( InvalidPathException | NullPointerException e){
             //file path is invalid
             return -1;
@@ -210,13 +210,13 @@ public class ConfigFile {
             if(thisArray[2].equals(displayName) && thisArray[0].equals(Integer.toString(category))){
                 //display displayName for the object is already in use
                 return -2;
-            } else if(thisArray[3].equals(desiredFilePath)){
+            } else if(thisArray[3].equals(desiredFileName)){
                 //file path is already in use
                 return -3;
             }
         }
 
-        File tempFile = new File(desiredFilePath);
+        File tempFile = new File(desiredFileName);
 
         //check if file already exists on computer and create file
         try {
@@ -227,6 +227,7 @@ public class ConfigFile {
             } else{
                 //ToDo generate as many [Side x] as there are selected window numbers
                 FileWriter writer = new FileWriter(tempFile);
+                writer.write(windowNames + "\r\n");
                 writer.write("[Language A][Language B][Aux][Side 1][Side 2][Side 3][Side 4][Side 5]");
                 writer.close();
             }
@@ -237,7 +238,7 @@ public class ConfigFile {
         //add the new file information to the properties
         try {
             //add the new entry to the properties file and increase the maxFileIndex at the same time
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFilePath);
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFileName);
 
             FileWriter myWriter = new FileWriter(configFilePath);
             myProperties.store(myWriter,"Added new category with index " + maxFileIndex);    //store the properties that were created

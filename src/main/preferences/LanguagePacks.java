@@ -14,7 +14,9 @@ public class LanguagePacks extends JPanel implements ActionListener {
     public ConfigFile myConfig;
     private ArrayList<SpecialCheckBoxes> allCheckBoxes;
     private JPanel enableDisablePack;
+    private GridBagConstraints gbc;
 
+    //action listener for the enable/disable checkboxes
     ActionListener checkBoxAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -29,7 +31,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
         allCheckBoxes = new ArrayList<>();
         setBackground(Color.GREEN);
         setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        gbc = new GridBagConstraints();
 
         JPanel addPack = new JPanel();
         addAddPackComponents(addPack);  //add all the components to the panel
@@ -61,20 +63,44 @@ public class LanguagePacks extends JPanel implements ActionListener {
         addEnableDisableComponents(enableDisablePack); //add all the components to the panel
     }
 
+    /**
+     * Updates the checkboxes in the enable/disable language pack panel. Also updates the
+     * main menu checkboxes.
+     */
+    private void updateEnableDisablePackPanel(){
+        //update the enable disable panel
+        this.remove(enableDisablePack);
+        enableDisablePack = new JPanel();
+        addEnableDisableComponents(enableDisablePack);
+        gbc.weightx = 0.4;
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.gridheight = 2;
+        gbc.gridwidth = 1;
+        add(enableDisablePack, gbc);
+        revalidate();
+        repaint();
+        //update the main menu
+        myConfig.updateMainMenuCheckBoxes();
+    }
+
     private JComboBox categoryDropDown;
     JTextField displayNameTextField;
-    JLabel filePathLabel;
-    JCheckBox auxWindowCheckbox;
     JComboBox sideWindowDropDown;
-    JCheckBox showItemsLeft;
     JButton submitButton;
+    JTextField auxNameTextField;
+    JTextField fileNameTextField;
+    //JTextField ;
+
+    ArrayList<JLabel> sideWindowJLabels = new ArrayList<>();
+    ArrayList<JTextField> sideWindowTextFields = new ArrayList<>();
 
 
     private void addAddPackComponents(JPanel section){
         section.setBackground(Color.WHITE);
         section.setBorder(BorderFactory.createMatteBorder(0,0,1,0,Color.BLACK));
         section.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+        GridBagConstraints addPackGbc = new GridBagConstraints();
 
 
         //--header--
@@ -83,88 +109,134 @@ public class LanguagePacks extends JPanel implements ActionListener {
         sectionHeading.setFont(new Font(sectionHeading.getFont().getFontName(),Font.BOLD, 15));
         sectionHeading.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        section.add(sectionHeading, gbc);
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 0;
+        addPackGbc.gridwidth = 2;
+        section.add(sectionHeading, addPackGbc);
 
 
 
         //--category row--
         JLabel categoryLabel = new JLabel("Category");
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        section.add(categoryLabel, gbc);
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 1;
+        addPackGbc.gridwidth = 1;
+        section.add(categoryLabel, addPackGbc);
 
         String categoryDropDownItems[] = {"Words", "Phrases", "Special"};
         categoryDropDown = new JComboBox(categoryDropDownItems);
-        gbc.gridx = 1;
-        section.add(categoryDropDown, gbc);
+        addPackGbc.gridx = 1;
+        section.add(categoryDropDown, addPackGbc);
 
         //--display name row--
         JLabel displayNameLabel = new JLabel("Display Name");
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        section.add(displayNameLabel, gbc);
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 2;
+        section.add(displayNameLabel, addPackGbc);
 
         displayNameTextField = new JTextField(15);
-        gbc.gridx = 1;
-        section.add(displayNameTextField, gbc);
+        addPackGbc.gridx = 1;
+        section.add(displayNameTextField, addPackGbc);
 
-        //--file path row--
-        JButton addFilePathButton = new JButton("Add File Path");
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        section.add(addFilePathButton, gbc);
+        //--file name row--
+        JLabel addFileNameLabel = new JLabel("Add File Name");
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 3;
+        section.add(addFileNameLabel, addPackGbc);
 
-        //ToDo Add handling for this button
+        fileNameTextField = new JTextField(15);
+        addPackGbc.gridx = 1;
+        section.add(fileNameTextField, addPackGbc);
 
-        filePathLabel = new JLabel("test.txt");
-        gbc.gridx = 1;
-        section.add(filePathLabel, gbc);
-
-        //--aux window row--
-        auxWindowCheckbox = new JCheckBox("Enable Aux Window");
-        auxWindowCheckbox.setHorizontalTextPosition(SwingConstants.LEFT);
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 2;
-        section.add(auxWindowCheckbox, gbc);
 
         //--side windows row--
         JLabel sideWindowsLabel = new JLabel("Number of Side Windows");
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.gridwidth = 1;
-        section.add(sideWindowsLabel, gbc);
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 4;
+        addPackGbc.gridwidth = 1;
+        section.add(sideWindowsLabel, addPackGbc);
 
         String dropDownItems[] = {"0","1","2","3","4","5"};
         sideWindowDropDown = new JComboBox(dropDownItems);
-        gbc.gridx = 1;
-        section.add(sideWindowDropDown, gbc);
+        sideWindowDropDown.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateSideWindowOptions(addPackGbc, section);
+            }
+        });
+        addPackGbc.gridx = 1;
+        section.add(sideWindowDropDown, addPackGbc);
 
-        //--show items left row--
-        //ToDo make setting global rather than local for each pack
-        showItemsLeft = new JCheckBox("Show Items Left");
-        showItemsLeft.setHorizontalTextPosition(SwingConstants.LEFT);
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        gbc.gridwidth = 2;
-        section.add(showItemsLeft, gbc);
+        //--display name row--
+        JLabel auxNameLabel = new JLabel("Title for aux window:");
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 5;
+        addPackGbc.gridwidth = 1;
+        section.add(auxNameLabel, addPackGbc);
+
+        auxNameTextField = new JTextField(15);
+        addPackGbc.gridx = 1;
+        section.add(auxNameTextField, addPackGbc);
 
         //-- Add button--
         submitButton = new JButton("Submit");
-        gbc.gridx = 0;
-        gbc.gridy = 7;
+        addPackGbc.gridx = 0;
+        addPackGbc.gridy = 14;
         submitButton.addActionListener(this);
         section.add(submitButton);
     }
 
+    /**
+     * Dynamically adds or removes options for the names of the side windows, depending on the selection
+     * of {@link #sideWindowDropDown}.
+     * @param gbc       Reference to the {@link GridBagConstraints} of the <i>add language pack</i> panel
+     * @param section   Reference to the <i>add language pack</i> panel
+     */
+    private void updateSideWindowOptions(GridBagConstraints gbc, JPanel section){
+        int desiredSideWindows = sideWindowDropDown.getSelectedIndex();
+
+        //remove options if the new selected number of side windows is smaller than the currently displayed options
+        if(desiredSideWindows < sideWindowJLabels.size()){
+            for(int i = sideWindowJLabels.size(); i > desiredSideWindows; i--){
+                System.out.println(i);
+                section.remove(sideWindowJLabels.get(i-1));
+                sideWindowJLabels.remove(i-1);
+                section.remove(sideWindowTextFields.get(i-1));
+                sideWindowTextFields.remove(i-1);
+            }
+        } else {
+            //add options if the selected number of side windows is bigger than the currently displayed options
+            //if the number is equal, the for loop will not execute, thus no options are added
+            gbc.gridwidth = 1;
+            for (int i = sideWindowJLabels.size() + 1; i <= desiredSideWindows; i++) {
+                if(i != 0) {
+                    JLabel sideNameLabel = new JLabel("Title for side window " + i);
+                    gbc.gridx = 0;
+                    gbc.gridy = 7 + i;
+                    section.add(sideNameLabel, gbc);
+                    sideWindowJLabels.add(sideNameLabel);
+
+                    JTextField sideNameTextField = new JTextField(15);
+                    gbc.gridx = 1;
+                    section.add(sideNameTextField, gbc);
+                    sideWindowTextFields.add(sideNameTextField);
+                    System.out.println(sideWindowJLabels);
+                }
+
+            }
+        }
+        section.revalidate();
+        section.repaint();
+    }
+
+    /**
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e){
         int category;
         String desiredDisplayName;
-        String filePath;
+        String fileName;
         if(e.getSource() == submitButton){
 
             //store the category
@@ -172,30 +244,108 @@ public class LanguagePacks extends JPanel implements ActionListener {
 
             //check if display name is valid (only a-z, A-Z, 0-9, '(', ')', '-' and '_')
             //ToDo add support for different languages
-            System.out.println(displayNameTextField.getText());
-            if(displayNameTextField.getText().matches("^[\\s\\p{Alnum}-_()]+$")){
-                desiredDisplayName = displayNameTextField.getText();
+            // \s = white space character \p{Alnum} = any alpha numeric character and chars - _ ()
+            if(displayNameTextField.getText().trim().matches("^[\\s\\p{Alnum}-_()]+$")){
+                desiredDisplayName = displayNameTextField.getText().trim();
             } else{
-                //ToDo display error message
-                System.out.println("Invalid Display Name!");
+                //display error message and return
+                JOptionPane.showMessageDialog(this,
+                        "Display name has to have at least one non space character\n" +
+                                "and can only contain the following characters:\n" +
+                                "letters\n" +
+                                "numbers\n" +
+                                "spaces\n" +
+                                "dash -\n" +
+                                "underscore _\n" +
+                                "opening and closing parenthesis ( )\n" +
+                                "and have to have at least one non space character",
+                        "Invalid Character",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            //store the desired file path
-            if(filePathLabel.getText().equals("")){
-                //ToDo display error message
-                System.out.println("Please specify a file path");
+            //  not used - regex: ^[]+ matches at least one of the contained items (all allowed ones except for white space)
+            //  not used - regex: []*$ matches at least 0 of the contained items (all allowed ones including white space)
+            //  not used - ^[\\p{Alnum}-_()]+[\\s\\p{Alnum}-_()]*$
+
+            //allow only a-z, A-Z, 0-9, '(', ')', '-' and '_'
+
+            if(fileNameTextField.getText().trim().matches("^[\\s\\p{Alnum}-_()]+$")){
+                fileName = fileNameTextField.getText().trim() + ".txt";
+            } else{
+                //display error message and return
+                JOptionPane.showMessageDialog(this,
+                        "File name has to have at least one non space character\n" +
+                                "and can only contain the following characters:\n" +
+                                "letters\n" +
+                                "numbers\n" +
+                                "spaces\n" +
+                                "dash -\n" +
+                                "underscore _\n" +
+                                "opening and closing parenthesis ( )\n" +
+                                "and have to have at least one non space character",
+                        "Invalid Character",
+                        JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            filePath = filePathLabel.getText();
+
+            String windowNames;
+            if(auxNameTextField.getText().trim().matches("^[\\s\\p{Alnum}-_()]+$")){
+                windowNames = "[name aux]" + auxNameTextField.getText().trim();
+            } else{
+                //display error message and return
+                JOptionPane.showMessageDialog(this,
+                        "Aux window name has to have at least one non space character\n" +
+                                "and can only contain the following characters:\n" +
+                                "letters\n" +
+                                "numbers\n" +
+                                "spaces\n" +
+                                "dash -\n" +
+                                "underscore _\n" +
+                                "opening and closing parenthesis ( )\n" +
+                                "and have to have at least one non space character",
+                        "Invalid Character",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+
+
+            //get every created side window textField and check the input
+            for(int i = 0; i < sideWindowTextFields.size(); i++){
+                //collect and trim the string from the current textField
+                String thisName = sideWindowTextFields.get(i).getText().trim();
+                //match the string to the regex
+                if(thisName.matches("^[\\s\\p{Alnum}-_()]+$")){
+                    windowNames += "[name side " + (i+1) + "]" + thisName;
+                } else{
+                    //display error message and return
+                    JOptionPane.showMessageDialog(this,
+                            "Side window names have to have at least one non space character\n" +
+                                    "and can only contain the following characters:\n" +
+                                    "letters\n" +
+                                    "numbers\n" +
+                                    "spaces\n" +
+                                    "dash -\n" +
+                                    "underscore _\n" +
+                                    "opening and closing parenthesis ( )\n" +
+                                    "and have to have at least one non space character",
+                            "Invalid Character",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+
+
 
             //ToDo display error message
-            switch(myConfig.addLanguagePack(category, true, desiredDisplayName, filePath)){
+            switch(myConfig.addLanguagePack(category, true, desiredDisplayName, fileName, windowNames)){
                 case 0:
                     System.out.println("IO Error");
                     break;
                 case 1:
                     //ToDo update the checkboxes on the right hand side
+                    updateEnableDisablePackPanel();
                     break;
                 case -1:
                     System.out.println("file path invalid");

@@ -91,17 +91,22 @@ public class StudySpace extends JPanel {
 
         //create a new main window [2] that holds the main word
         JPanel mainWindow = new JPanel();
-        mainWindow.setLayout(new BoxLayout(mainWindow, BoxLayout.PAGE_AXIS));
+        JPanel mainWindowContent = new JPanel();
+        //mainWindowComponent is needed because the PAGE_AXIS BoxLayout only regards
+        //the preferred height, not the preferred width
+        mainWindowContent.setLayout(new BoxLayout(mainWindowContent, BoxLayout.PAGE_AXIS));
         if(hasAux){
             mainWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
+            //mainWindow.setMaximumSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
         } else {
             mainWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 8));
         }
         mainWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
         mainWindowLabel = new JLabel("Main Window");
         mainWindowSolutionLabel = new JLabel("Solution Label");
-        mainWindow.add(mainWindowLabel);
-        mainWindow.add(mainWindowSolutionLabel);
+        mainWindowContent.add(mainWindowLabel);
+        mainWindowContent.add(mainWindowSolutionLabel);
+        mainWindow.add(mainWindowContent);
         leftColumn.add(mainWindow);
 
         //create a new aux window [3]
