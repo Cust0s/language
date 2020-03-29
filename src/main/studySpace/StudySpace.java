@@ -28,8 +28,12 @@ public class StudySpace extends JPanel {
     JLabel mainWindowLabel;
     JLabel mainWindowSolutionLabel;
     JLabel auxLabel;
-
     JLabel auxWindowNameLabel;
+
+    private Font titleFont;
+    private Font contentFont;
+    private Font mainFontPlain;
+    private Font mainFontBold;
 
     //flags the current status of the solution: is it displayed or not
     boolean solutionDisplayed = false;
@@ -41,6 +45,7 @@ public class StudySpace extends JPanel {
     private ArrayList<DataRow> data = new ArrayList<>();   //each row of data split into seperate strings
     private int index = 0;
 
+
     public StudySpace(ConfigFile myConfig, MainFrame frame, int sizeX, int sizeY, ArrayList<String> filePaths, int language, int numberOfRows){
         this.myConfig = myConfig;
         this.frame = frame;
@@ -49,6 +54,13 @@ public class StudySpace extends JPanel {
         this.filePaths = filePaths;
         this.selectedLanguage = language;
         myConfig.addStudySpace(this);
+
+        titleFont = new Font("Malgun Gothic Semilight", Font.BOLD, 20);
+        contentFont = new Font("Malgun Gothic Semilight", Font.PLAIN, 20);
+        mainFontPlain = new Font("Malgun Gothic Semilight", Font.PLAIN, 30);
+        mainFontBold = new Font("Malgun Gothic Semilight", Font.BOLD, 30);
+
+
         processFiles();
         //set the number of items that should be queried.
         if(numberOfRows < data.size()){
@@ -79,37 +91,52 @@ public class StudySpace extends JPanel {
         rightColumn.setBackground(Color.lightGray);
 
 
+        //-----
         //create title bar [1] that holds display name and number
+        //-----
         JPanel titleBar = new JPanel();
         titleBar.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 1));
         titleBar.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.BLACK));
-        titleBar.add(new JLabel("Header"));
+        JLabel headerLabel = new JLabel("Header");
+        headerLabel.setFont(titleFont);
+        titleBar.add(headerLabel);
         counterLabel = new JLabel("x/n");
+        counterLabel.setFont(contentFont);
         titleBar.add(counterLabel);
         leftColumn.add(titleBar);
 
 
+        //-----
         //create a new main window [2] that holds the main word
+        //-----
         JPanel mainWindow = new JPanel();
+        mainWindow.setLayout(new GridBagLayout());
         JPanel mainWindowContent = new JPanel();
         //mainWindowComponent is needed because the PAGE_AXIS BoxLayout only regards
         //the preferred height, not the preferred width
         mainWindowContent.setLayout(new BoxLayout(mainWindowContent, BoxLayout.PAGE_AXIS));
         if(hasAux){
             mainWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
-            //mainWindow.setMaximumSize(new Dimension(leftColumnWidth, sizeY / 10 * 4));
         } else {
             mainWindow.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 8));
         }
         mainWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
         mainWindowLabel = new JLabel("Main Window");
+        mainWindowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainWindowLabel.setOpaque(true);
+        mainWindowLabel.setFont(mainFontBold);
         mainWindowSolutionLabel = new JLabel("Solution Label");
+        mainWindowSolutionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        mainWindowSolutionLabel.setOpaque(true);
+        mainWindowSolutionLabel.setFont(mainFontPlain);
         mainWindowContent.add(mainWindowLabel);
         mainWindowContent.add(mainWindowSolutionLabel);
         mainWindow.add(mainWindowContent);
         leftColumn.add(mainWindow);
 
+        //-----
         //create a new aux window [3]
+        //-----
         JPanel auxWindow = new JPanel();
         JPanel auxWindowContent = new JPanel();
         //auxWindowContent is needed because the PAGE_AXIS BoxLayout only regards
@@ -119,17 +146,23 @@ public class StudySpace extends JPanel {
         auxWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
         //label for the title of the window
         auxWindowNameLabel = new JLabel("Aux Window");
+        auxWindowNameLabel.setFont(titleFont);
+        auxWindowNameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         auxWindowContent.add(auxWindowNameLabel);
 
         //label for the content text of the window
         auxLabel = new JLabel("Aux Window");
+        auxLabel.setFont(contentFont);
+        auxLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         auxWindowContent.add(auxLabel);
         auxWindow.add(auxWindowContent);
         if(hasAux){
             leftColumn.add(auxWindow);
         }
 
+        //-----
         //create a new buttonBar [4]
+        //-----
         JPanel buttonBar = new JPanel();
         buttonBar.setPreferredSize(new Dimension(leftColumnWidth, sizeY / 10 * 1));
         buttonBar.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
@@ -154,10 +187,12 @@ public class StudySpace extends JPanel {
 
         leftColumn.add(buttonBar);
 
+        //-----
         //create a new sideWindow [5]
+        //-----
         sideWindows = new ArrayList<>(maxSideWindows);
         for(int i = 0; i < maxSideWindows; i++){
-            SidePanel sideWindowContent = new SidePanel("Side Window " + (i+1) + " title", "Side Window " + (i+1));
+            SidePanel sideWindowContent = new SidePanel("Side Window " + (i+1) + " title", "Side Window " + (i+1), titleFont, contentFont);
             sideWindowContent.setPreferredSize(new Dimension(rightColumnWidth, Math.round(this.sizeY / maxSideWindows)));
 
             if(i == 0){
@@ -228,9 +263,9 @@ public class StudySpace extends JPanel {
                     //display the solution if required
                     if(displaySolution){
                         if(thisRow.getRandomNumber() == 0){
-                            mainWindowLabel.setText(thisRow.getLanguageB());
+                            mainWindowSolutionLabel.setText(thisRow.getLanguageB());
                         } else if(thisRow.getRandomNumber() == 1){
-                            mainWindowLabel.setText(thisRow.getLanguageA());
+                            mainWindowSolutionLabel.setText(thisRow.getLanguageA());
                         }
                     } else{
                         mainWindowSolutionLabel.setText("");
@@ -258,7 +293,7 @@ public class StudySpace extends JPanel {
             //set aux window title text null and then update it if isDisplayWindowTitles is turned on
             auxWindowNameLabel.setText(null);
             //get the aux window name which is always index 0
-            if(myConfig.isDisplayWindowTitles()){
+            if(myConfig.isDisplayWindowTitles() && thisRow.getWindowNames().size() != 0){
                 auxWindowNameLabel.setText(thisRow.getWindowNames().get(0));
             }
 
@@ -351,7 +386,7 @@ public class StudySpace extends JPanel {
                         updateWindows(false);
                         //update solution displayed in case the displayInstantSolution
                         //property is changed while in study space
-                        solutionDisplayed = true;
+                        solutionDisplayed = false;
                 }
             }
         }

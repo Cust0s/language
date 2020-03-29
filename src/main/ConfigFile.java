@@ -36,7 +36,6 @@ public class ConfigFile {
 
 
     ConfigFile(String configFilePath){
-        System.out.println("Created Config file!");
         this.configFilePath = configFilePath;
         languageA = "Korean";
         languageB = "English";
@@ -58,19 +57,16 @@ public class ConfigFile {
             displayWindowTitles = Boolean.parseBoolean(myProperties.getProperty("displayWindowTitles"));
 
 
-            System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt", "[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
-            System.out.println("add words lesson 2: " + addLanguagePack(Main.WORDS,true,"lesson 2", "words_lesson_2.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
-            System.out.println("add words lesson invalid: " + addLanguagePack(Main.WORDS,true,"lesson invalid", "words_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            //System.out.println("add words lesson 1: " + addLanguagePack(Main.WORDS,true,"lesson 1", "words_lesson_1.txt", "[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            //System.out.println("add words lesson 2: " + addLanguagePack(Main.WORDS,true,"lesson 2", "words_lesson_2.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            //System.out.println("add words lesson invalid: " + addLanguagePack(Main.WORDS,true,"lesson invalid", "words_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
-            System.out.println("add phrases lesson 1: " + addLanguagePack(Main.PHRASES,true,"lesson 1", "phrases_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            //System.out.println("add phrases lesson 1: " + addLanguagePack(Main.PHRASES,true,"lesson 1", "phrases_lesson_1.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
-            System.out.println("add special lesson 3: " + addLanguagePack(Main.SPECIAL,true,"lesson 3","special_lesson_3.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
+            //System.out.println("add special lesson 3: " + addLanguagePack(Main.SPECIAL,true,"lesson 3","special_lesson_3.txt","[name aux]aux title[name side 1]side 1 title[name side 2]side 2 title"));
 
             updateMaxIndex();
-            System.out.println("Reading File Information");
             readLanguagePacks();
-            System.out.println("");
-
         }  catch (IOException e){
             e.printStackTrace();
         }

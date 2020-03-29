@@ -290,13 +290,15 @@ public class LanguagePacks extends JPanel implements ActionListener {
             }
 
             String windowNames;
-            if(auxNameTextField.getText().trim().matches("^[\\s\\p{Alnum}-_()]+$")){
+            //if the aux field is empty accept that as input
+            if(auxNameTextField.getText().trim().equals("")){
+                windowNames = "[name aux]";
+            } else if(auxNameTextField.getText().trim().matches("^[\\s\\p{Alnum}-_()]+$")){
                 windowNames = "[name aux]" + auxNameTextField.getText().trim();
             } else{
                 //display error message and return
                 JOptionPane.showMessageDialog(this,
-                        "Aux window name has to have at least one non space character\n" +
-                                "and can only contain the following characters:\n" +
+                        "Aux window name can only contain the following characters:\n" +
                                 "letters\n" +
                                 "numbers\n" +
                                 "spaces\n" +
