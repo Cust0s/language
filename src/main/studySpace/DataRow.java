@@ -20,7 +20,10 @@ class DataRow{
         //store the window names for each item
         this.windowNames = new ArrayList<>(Arrays.asList(windowNames.split("\\[name aux\\]|\\[name side \\d\\]")));
         //remove the empty first string that gets created by String.split()
-        this.windowNames.remove(0);
+        if(this.windowNames.size() > 0) {
+            this.windowNames.remove(0);
+        }
+
 
 
 
@@ -75,42 +78,6 @@ class DataRow{
                 }
             }
         }
-
-
-//            //anything < 4 will not have at least two strings for language A and B
-//            if(temp.length >= 4) {    //temp will contain at least [, language A, language B, ...] >= 3
-//                String[] rowContents = Arrays.copyOfRange(temp, 1, temp.length);
-//
-//                //case: languageA, languageB, aux, side x
-//                //      [random number, languageA, languageB, aux, side x, ...]
-//                //array.length >= 5
-//
-//                //case: languageA, languageB, side x
-//                //      [random number, languageA, languageB, , side x, ...]
-//                //array.length >= 5
-//
-//                //case: languageA, languageB, aux
-//                //      [random number, languageA, languageB, aux]
-//                //array.length = 4
-//
-//                //case: languageA, languageB
-//                //      [random number, language A, languageB]
-//                //array.length = 3
-//
-//
-//                data.add(rowContents);
-//                if ((rowContents.length >= 5 && !rowContents[3].equals("")) || rowContents.length == 4) {
-//                    //if there are 5 entries in the array, temp[3] (aux) is in bounds. If the string
-//                    //is not empty, then aux content exists
-//
-//                    //aux needed
-//                    hasAux = true;
-//                }
-//
-//                if (rowContents.length - 4 > maxSideWindows) {
-//                    maxSideWindows = rowContents.length - 4;
-//                }
-//            }
     }
 
     /**
