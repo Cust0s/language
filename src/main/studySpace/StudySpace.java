@@ -27,7 +27,8 @@ public class StudySpace extends JPanel {
     JLabel counterLabel;
     JLabel mainWindowLabel;
     JLabel mainWindowSolutionLabel;
-    JLabel auxLabel;
+    JLabel auxMainLabel;
+    JLabel auxSolutionLabel;
     JLabel auxWindowNameLabel;
 
     private Font titleFont;
@@ -123,11 +124,9 @@ public class StudySpace extends JPanel {
         mainWindow.setBorder(BorderFactory.createMatteBorder(0,1,1,1,Color.BLACK));
         mainWindowLabel = new JLabel("Main Window");
         mainWindowLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mainWindowLabel.setOpaque(true);
         mainWindowLabel.setFont(mainFontBold);
         mainWindowSolutionLabel = new JLabel("Solution Label");
         mainWindowSolutionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        mainWindowSolutionLabel.setOpaque(true);
         mainWindowSolutionLabel.setFont(mainFontPlain);
         mainWindowContent.add(mainWindowLabel);
         mainWindowContent.add(mainWindowSolutionLabel);
@@ -150,11 +149,17 @@ public class StudySpace extends JPanel {
         auxWindowNameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         auxWindowContent.add(auxWindowNameLabel);
 
-        //label for the content text of the window
-        auxLabel = new JLabel("Aux Window");
-        auxLabel.setFont(contentFont);
-        auxLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        auxWindowContent.add(auxLabel);
+        //label A for the content text of the window
+        auxMainLabel = new JLabel("Aux A Window");
+        auxMainLabel.setFont(contentFont);
+        auxMainLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        auxWindowContent.add(auxMainLabel);
+
+        //label B for the content text of the window
+        auxSolutionLabel = new JLabel("Aux B Window");
+        auxSolutionLabel.setFont(contentFont);
+        auxSolutionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        auxWindowContent.add(auxSolutionLabel);
         auxWindow.add(auxWindowContent);
         if(hasAux){
             leftColumn.add(auxWindow);
@@ -250,46 +255,56 @@ public class StudySpace extends JPanel {
 
             counterLabel.setText((index + 1) + "/" + numberOfRows);
 
-            //update the main window
+            //update the main window and aux window
             switch(selectedLanguage){
                 case 0:     //mixed language
                     //display the main language
                     if(thisRow.getRandomNumber() == 0){
                         mainWindowLabel.setText(thisRow.getLanguageA());
+                        auxMainLabel.setText(thisRow.getAuxA());
                     } else if(thisRow.getRandomNumber() == 1){
                         mainWindowLabel.setText(thisRow.getLanguageB());
+                        auxMainLabel.setText(thisRow.getAuxB());
                     }
 
                     //display the solution if required
                     if(displaySolution){
                         if(thisRow.getRandomNumber() == 0){
                             mainWindowSolutionLabel.setText(thisRow.getLanguageB());
+                            auxSolutionLabel.setText(thisRow.getAuxB());
                         } else if(thisRow.getRandomNumber() == 1){
                             mainWindowSolutionLabel.setText(thisRow.getLanguageA());
+                            auxSolutionLabel.setText(thisRow.getAuxA());
                         }
                     } else{
                         mainWindowSolutionLabel.setText("");
+                        auxSolutionLabel.setText("");
                     }
                     break;
                 case 1:     //language A
                     mainWindowLabel.setText(thisRow.getLanguageA());
+                    auxMainLabel.setText(thisRow.getAuxA());
                     if(displaySolution){
                         mainWindowSolutionLabel.setText(thisRow.getLanguageB());
+                        auxSolutionLabel.setText(thisRow.getAuxB());
                     } else{
                         mainWindowSolutionLabel.setText("");
+                        auxSolutionLabel.setText("");
                     }
                     break;
                 case 2:     //language B
                     mainWindowLabel.setText(thisRow.getLanguageB());
+                    auxMainLabel.setText(thisRow.getAuxB());
                     if(displaySolution){
                         mainWindowSolutionLabel.setText(thisRow.getLanguageA());
+                        auxSolutionLabel.setText(thisRow.getAuxA());
                     } else{
                         mainWindowSolutionLabel.setText("");
+                        auxSolutionLabel.setText("");
                     }
                     break;
             }
 
-            auxLabel.setText(thisRow.getAux());
             //set aux window title text null and then update it if isDisplayWindowTitles is turned on
             auxWindowNameLabel.setText(null);
             //get the aux window name which is always index 0

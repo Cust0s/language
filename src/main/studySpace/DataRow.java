@@ -8,7 +8,8 @@ class DataRow{
     private int randomNumber;
     private String languageA = null;
     private String languageB = null;
-    private String aux = null;
+    private String auxA = null;
+    private String auxB = null;
     private int noOfSideWindows = 0;
     private ArrayList<String> sideWindows = null;
 
@@ -24,15 +25,11 @@ class DataRow{
             this.windowNames.remove(0);
         }
 
-
-
-
-        //sideWindows = new ArrayList<>(Collections.nCopies(noOfSideWindows, null));
         //set the random number used in the mixed language setting
         Random rnd = new Random();
         randomNumber = rnd.nextInt(2);
 
-        ArrayList<String> temp = new ArrayList<>(Arrays.asList(thisLine.split("\\[Language A\\]|\\[Language B\\]|\\[Aux\\]|\\[Side \\d\\]")));
+        ArrayList<String> temp = new ArrayList<>(Arrays.asList(thisLine.split("\\[Language A\\]|\\[Language B\\]|\\[Aux A\\]|\\[Aux B\\]|\\[Side \\d\\]")));
         if(temp.size() <= 1){
             //ToDo handle case
             return;
@@ -46,35 +43,34 @@ class DataRow{
         languageB = temp.get(0);
         temp.remove(0);
 
-
-        if(temp.size() == 1){
-            //aux but no side windows
-            this.aux = temp.get(0);
+        int arraySize = temp.size();
+        if(arraySize > 0){
+            this.auxA = temp.get(0);
+        }
+        if(arraySize > 1){
+            this.auxB = temp.get(1);
+        }
+        if(!this.auxA.equals("") || this.auxB.equals("")){
             studySpace.setHasAux(true);
-        } else if(temp.size() > 1){
-            //aux possibly exists and side windows exist
-            if(temp.get(0).equals("")){
-                this.aux = null;
-            } else{
-                this.aux = temp.get(0);
-                studySpace.setHasAux(true);
-            }
-            temp.remove(0);
-
-            //set the number of side windows
-            this.noOfSideWindows = temp.size();
+        }
+        if(arraySize > 2){
+            //get number of required side windows
+            this.noOfSideWindows = temp.size()-2; //subtract the two aux items
             //update the maximum number of side windows if needed
             if(noOfSideWindows > studySpace.getMaxSideWindows()){
                 studySpace.setMaxSideWindows(noOfSideWindows);
             }
+
             //fill side windows arrayList with data for each side window or null for unused side windows
+            int auxOffset = 2;
             sideWindows = new ArrayList<>();
-            for(int i = 0; i < temp.size(); i++){
+            System.out.println(temp);
+            for(int i = auxOffset; i < temp.size(); i++){
                 String thisSideWindow = temp.get(i);
                 if(!thisSideWindow.equals("")){
-                    sideWindows.add(i, thisSideWindow);
+                    sideWindows.add(i - auxOffset, thisSideWindow);
                 } else {
-                    sideWindows.add(i, null);
+                    sideWindows.add(i - auxOffset, null);
                 }
             }
         }
@@ -109,8 +105,12 @@ class DataRow{
         return languageB;
     }
 
-    public String getAux() {
-        return aux;
+    public String getAuxA() {
+        return auxA;
+    }
+
+    public String getAuxB() {
+        return auxB;
     }
 
     public int getNoOfSideWindows() {
@@ -126,7 +126,8 @@ class DataRow{
         return "[" + randomNumber
                 + ", " + languageA
                 + ", " + languageB
-                + ", " + aux
+                + ", " + auxA
+                + ", " + auxB
                 + ", " + noOfSideWindows
                 + ", " + sideWindowsString + "]";
     }

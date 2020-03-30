@@ -226,7 +226,7 @@ public class ConfigFile {
                 //ToDo generate as many [Side x] as there are selected window numbers
                 FileWriter writer = new FileWriter(tempFile);
                 writer.write(windowNames + "\r\n");
-                writer.write("[Language A][Language B][Aux][Side 1][Side 2][Side 3][Side 4][Side 5]");
+                writer.write("[Language A][Language B][Aux A][Aux B][Side 1][Side 2][Side 3][Side 4][Side 5]");
                 writer.close();
             }
         } catch (IOException e) {
