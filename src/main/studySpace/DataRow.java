@@ -64,7 +64,6 @@ class DataRow{
             //fill side windows arrayList with data for each side window or null for unused side windows
             int auxOffset = 2;
             sideWindows = new ArrayList<>();
-            System.out.println(temp);
             for(int i = auxOffset; i < temp.size(); i++){
                 String thisSideWindow = temp.get(i);
                 if(!thisSideWindow.equals("")){
