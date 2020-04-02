@@ -50,7 +50,7 @@ class DataRow{
         if(arraySize > 1){
             this.auxB = temp.get(1);
         }
-        if(!this.auxA.equals("") || this.auxB.equals("")){
+        if(this.auxA != null && !this.auxA.equals("") || this.auxB != null && this.auxB.equals("")){
             studySpace.setHasAux(true);
         }
         if(arraySize > 2){
