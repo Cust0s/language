@@ -46,12 +46,15 @@ class DataRow{
         int arraySize = temp.size();
         if(arraySize > 0){
             this.auxA = temp.get(0);
+            if(!this.auxA.equals("")){
+                studySpace.setHasAux(true);
+            }
         }
         if(arraySize > 1){
             this.auxB = temp.get(1);
-        }
-        if(this.auxA != null && !this.auxA.equals("") || this.auxB != null && this.auxB.equals("")){
-            studySpace.setHasAux(true);
+            if(!this.auxB.equals("")){
+                studySpace.setHasAux(true);
+            }
         }
         if(arraySize > 2){
             //get number of required side windows
