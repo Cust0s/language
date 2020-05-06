@@ -9,8 +9,7 @@ import java.awt.*;
 public class PreferencesFrame extends JDialog {
 
     public PreferencesFrame(JFrame parent, ConfigFile myConfig){
-        super(parent, "Title", true);
-        System.out.println("CREATED NEW PREFERENCE PANEL");
+        super(parent, "Preferences", true);
         getContentPane().setPreferredSize(new Dimension(854,480));
         //create content panel to hold the tabbed pane
         //JPanel content = new JPanel();

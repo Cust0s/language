@@ -297,10 +297,6 @@ public class ConfigFile {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println("Lines: " + counter);
-
-
-
 
         String value = category + "," + selected + "," + name + "," + filePath + "," + counter;
         try {
@@ -312,9 +308,6 @@ public class ConfigFile {
             FileWriter myWriter = new FileWriter(configFile);     //create new FileWriter
             myProperties.setProperty(configKey, value);
             myProperties.store(myWriter, "category ,enabled/disabled , name, file path");    //store the properties that were created
-
-            // category + "," + enabled + "," + displayName + "," + desiredFileName + "," + -1);
-
 
             myWriter.close();
 
@@ -337,7 +330,6 @@ public class ConfigFile {
     public boolean isDisplayWindowTitles(){
         return displayWindowTitles;
     }
-
     public boolean setDisplayWindowTitles(boolean state){
         try {
             //add the new entry to the properties file

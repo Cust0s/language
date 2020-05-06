@@ -60,7 +60,6 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new PreferencesFrame(getThisParent(), myConfig);
-                System.out.println("PREFERENCES WINDOW");
             }
         });
 

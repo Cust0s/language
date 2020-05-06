@@ -198,7 +198,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
         //remove options if the new selected number of side windows is smaller than the currently displayed options
         if(desiredSideWindows < sideWindowJLabels.size()){
             for(int i = sideWindowJLabels.size(); i > desiredSideWindows; i--){
-                System.out.println(i);
                 section.remove(sideWindowJLabels.get(i-1));
                 sideWindowJLabels.remove(i-1);
                 section.remove(sideWindowTextFields.get(i-1));
@@ -220,7 +219,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
                     gbc.gridx = 1;
                     section.add(sideNameTextField, gbc);
                     sideWindowTextFields.add(sideNameTextField);
-                    System.out.println(sideWindowJLabels);
                 }
 
             }
@@ -420,7 +418,7 @@ public class LanguagePacks extends JPanel implements ActionListener {
         myConfig.readLanguagePacks();
 
         for(String[] thisData : myConfig.getFilePaths()){
-            SpecialCheckBoxes temp = new SpecialCheckBoxes(Integer.parseInt(thisData[0]), Boolean.parseBoolean(thisData[1]), thisData[2], thisData[3], thisData[4], this);
+            SpecialCheckBoxes temp = new SpecialCheckBoxes(Integer.parseInt(thisData[0]), Boolean.parseBoolean(thisData[1]), thisData[2], thisData[3], thisData[5], this);
             temp.addActionListener(checkBoxAction);
             switch(Integer.parseInt(thisData[0])){
                 case 1:
@@ -440,7 +438,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
             allCheckBoxes.add(temp);
         }
         section.add(packsTabbedPane);
-        System.out.println(Arrays.toString(allCheckBoxes.toArray()));
     }
 
     /**
@@ -470,7 +467,6 @@ public class LanguagePacks extends JPanel implements ActionListener {
         }
 
         public void setSelected(){
-            System.out.println("Triggered checkbox");
             selected = isSelected();
             parent.myConfig.updateLanguagePackSelected(category, selected, name, filePath, configKey);
         }

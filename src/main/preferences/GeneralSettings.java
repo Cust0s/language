@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 public class GeneralSettings extends JPanel {
     ConfigFile myConfig;
 
-    //private JCheckBox instantSolutionCheckBox;
     public GeneralSettings(ConfigFile myConfig){
         super();
         this.myConfig = myConfig;
