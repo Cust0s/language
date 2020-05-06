@@ -407,11 +407,13 @@ public class LanguagePacks extends JPanel implements ActionListener {
 
         //add phrases tab
         JPanel phrasesTab = new JPanel();
+        phrasesTab.setLayout(new BoxLayout(phrasesTab, BoxLayout.PAGE_AXIS));
         packsTabbedPane.add("Phrases", phrasesTab);
         packsTabbedPane.setToolTipTextAt(0, "Packs in the \"Phrases\" category.");
 
         //add phrases tab
         JPanel specialTab = new JPanel();
+        specialTab.setLayout(new BoxLayout(specialTab, BoxLayout.PAGE_AXIS));
         packsTabbedPane.add("Special", specialTab);
         packsTabbedPane.setToolTipTextAt(0, "Packs in the \"Special\" category.");
 

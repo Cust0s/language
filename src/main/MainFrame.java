@@ -20,6 +20,7 @@ public class MainFrame extends JFrame {
         this.myConfig = myConfig;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setResizable(true);
 
         currentContent = new JPanel();
