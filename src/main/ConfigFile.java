@@ -153,10 +153,10 @@ public class ConfigFile {
                 if(key.contains(FILE_INFORMATION_PREFIX)){
                     String tempkey[] = myProperties.getProperty(key).split(",");
 
-                    if(tempkey.length == 4){
+                    if(tempkey.length == 5){
                         //key has the correct length and is assumed to be valid
-                        String[] tempKeyNew = Arrays.copyOf(tempkey, 5);
-                        tempKeyNew[4] = key;   //add the object key to the end
+                        String[] tempKeyNew = Arrays.copyOf(tempkey, 6);
+                        tempKeyNew[5] = key;   //add the object key to the end
                         filePaths.add(tempKeyNew);
                     } else{
                         //key did not have the correct size
@@ -236,7 +236,7 @@ public class ConfigFile {
         //add the new file information to the properties
         try {
             //add the new entry to the properties file and increase the maxFileIndex at the same time
-            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFileName);
+            myProperties.setProperty(FILE_INFORMATION_PREFIX + ++maxFileIndex, category + "," + enabled + "," + displayName + "," + desiredFileName + "," + -1);
 
             FileWriter myWriter = new FileWriter(configFilePath);
             myProperties.store(myWriter,"Added new category with index " + maxFileIndex);    //store the properties that were created
@@ -268,6 +268,13 @@ public class ConfigFile {
         }
     }
 
+    public void updateLanguagePacksNumbers(){
+        readLanguagePacks();
+        for(String[] languagePack : filePaths){
+            updateLanguagePackSelected(Integer.parseInt(languagePack[0]), Boolean.parseBoolean(languagePack[1]), languagePack[2], languagePack[3], languagePack[5]);
+        }
+    }
+
     /**
      * Update the language pack information in the properties file language pack files are not affected by these changes)
      * @param category
@@ -278,7 +285,24 @@ public class ConfigFile {
      */
     public void updateLanguagePackSelected(int category, boolean selected, String name, String filePath, String configKey) {
         //ToDo get the current information from the properties file for the specified key and only change "selected"
-        String value = category + "," + selected + "," + name + "," + filePath;
+        //as the first line in each language pack is a word, the counter is set to -1
+        int counter = -1;
+        try{
+            Scanner languagePackReader = new Scanner(new File(filePath));
+            while(languagePackReader.hasNextLine()){
+                counter++;
+                languagePackReader.nextLine();
+            }
+            languagePackReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Lines: " + counter);
+
+
+
+
+        String value = category + "," + selected + "," + name + "," + filePath + "," + counter;
         try {
             //read the current properties
             FileReader myReader = new FileReader(configFile);
@@ -288,6 +312,10 @@ public class ConfigFile {
             FileWriter myWriter = new FileWriter(configFile);     //create new FileWriter
             myProperties.setProperty(configKey, value);
             myProperties.store(myWriter, "category ,enabled/disabled , name, file path");    //store the properties that were created
+
+            // category + "," + enabled + "," + displayName + "," + desiredFileName + "," + -1);
+
+
             myWriter.close();
 
         } catch (FileNotFoundException e) {

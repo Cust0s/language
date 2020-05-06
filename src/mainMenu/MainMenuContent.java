@@ -38,6 +38,8 @@ public class MainMenuContent extends JPanel{
         phrasesCheckBoxPane = new CheckBoxScrollPane("Phrases");
         specialCheckBoxPane = new CheckBoxScrollPane("Special");
 
+        //update the number of words for each language pack
+        myConfig.updateLanguagePacksNumbers();
         //add the language packs to the three scroll panes
         populateCheckBoxPanes();
 
@@ -170,22 +172,23 @@ public class MainMenuContent extends JPanel{
             //[1] = language pack shown
             //[2] = display name
             //[3] = file path
-            //[4] = properties key
+            //[4] = word number
+            //[5] = property key
 
             //only proceed with the language packs that are enabled (shown)
             if(Boolean.parseBoolean(languagePack[1])){
                 switch (Integer.parseInt(languagePack[0])){
                     case 1:
                         //category words
-                        wordsCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        wordsCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[5], Integer.parseInt(languagePack[4]));
                         break;
                     case 2:
                         //category phrases
-                        phrasesCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        phrasesCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[5], Integer.parseInt(languagePack[4]));
                         break;
                     case 3:
                         //category special
-                        specialCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[4]);
+                        specialCheckBoxPane.addCheckBox(languagePack[2], languagePack[3], languagePack[5], Integer.parseInt(languagePack[4]));
                         break;
                     default :
                         //ToDo print error
@@ -254,8 +257,8 @@ public class MainMenuContent extends JPanel{
          * @param filePath          The file path to the file that the checkbox represents
          * @param propertiesKey     The properties key under which the language pack is stored in the {@link #myConfig} file
          */
-        void addCheckBox(String displayName, String filePath, String propertiesKey){
-            SpecialCheckBox tempBox = new SpecialCheckBox(displayName, filePath, propertiesKey);
+        void addCheckBox(String displayName, String filePath, String propertiesKey, int wordsNumber){
+            SpecialCheckBox tempBox = new SpecialCheckBox(displayName, filePath, propertiesKey, wordsNumber);
             myCheckBoxes.add(tempBox);      //save reference for later use
             scrollContent.add(tempBox);     //add to scrollable panel
         }
@@ -297,16 +300,22 @@ public class MainMenuContent extends JPanel{
         String propertiesKey;
 
         /**
+         * The number of total words in that language pack
+         */
+        int wordsNumber;
+
+        /**
          * Constructor that creates the checkbox and stores the {@link #displayName}, {@link #filePath} and {@link #propertiesKey}.
          * @param displayName       The name shown next to the checkbox
          * @param filePath          The file path to the file that the checkbox represents
          * @param propertiesKey     The properties key under which the language pack is stored in the {@link #myConfig} file
          */
-        SpecialCheckBox(String displayName, String filePath, String propertiesKey){
-            super(displayName, false);
+        SpecialCheckBox(String displayName, String filePath, String propertiesKey, int wordsNumber){
+            super(displayName + "   (" + wordsNumber + ")", false);
             this.displayName = displayName;
             this.filePath = filePath;
             this.propertiesKey = propertiesKey;
+            this.wordsNumber = wordsNumber;
         }
     }
 
