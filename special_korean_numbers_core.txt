@@ -1,0 +1,15 @@
+[name aux][name side 1]Comment
+[Language A]하나[Language B]one[Aux A][Aux B]Korean
+[Language A]둘[Language B]two[Aux A][Aux B]Korean
+[Language A]셋[Language B]three[Aux A][Aux B]Korean
+[Language A]넷[Language B]four[Aux A][Aux B]Korean
+[Language A]다섯[Language B]five[Aux A][Aux B]Korean
+[Language A]여섯[Language B]six[Aux A][Aux B]Korean
+[Language A]일곱[Language B]seven[Aux A][Aux B]Korean
+[Language A]여덟[Language B]eight[Aux A][Aux B]Korean
+[Language A]아홉[Language B]nine[Aux A][Aux B]Korean
+[Language A]열[Language B]ten[Aux A][Aux B]Korean
+[Language A]스물[Language B]twenty[Aux A][Aux B]Korean
+[Language A]서른[Language B]thirty[Aux A][Aux B]Korean
+[Language A]마흔[Language B]fourty[Aux A][Aux B]Korean
+[Language A]쉰[Language B]fifty[Aux A][Aux B]Korean

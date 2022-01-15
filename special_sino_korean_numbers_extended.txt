@@ -1,0 +1,2 @@
+[name aux]
+[Language A][Language B][Aux A][Aux B][Side 1][Side 2][Side 3][Side 4][Side 5]

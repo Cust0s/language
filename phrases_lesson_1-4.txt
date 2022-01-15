@@ -1,0 +1,26 @@
+﻿[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]음식은 비싸다.[Language B]The food is expensive.[Aux A][Aux B][Side 1]1-4[Side 2]해라체
+[Language A]나는 비싼 음식을 먹어.[Language B]I eat expensive food.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]저는 빘안 음식을 좋아해요.[Language B]I like expensive food.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]비싼 음식은 맛있어.[Language B]Expensive food is delicious.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]저는 작은 집에 가요.[Language B]I go to the small house.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]나는 큰 차를 원해.[Language B]I want a big car.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]나는 많은 돈이 있어.[Language B]I have a lot of money.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]저는 뚱뚱한 학생을 마나요.[Language B]I meet a fat student.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]그 집은 작아.[Language B]That house is small[Aux A][Aux B]from context[Side 1]1-4[Side 2]해체
+[Language A]이 차는 커요.[Language B]This car is big.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]남자는 음식을 먹어요.[Language B]The man eats food.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]행복한 여자는 작은 차 안에 있어.[Language B]The happy girl is inside the small car.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]그 남자는 재미있는 남자예요.[Language B]That man is a funny man.[Aux A][Aux B]from context[Side 1]1-4[Side 2]해요체
+[Language A]나는 맛있는 음식을 먹어.[Language B]I eat delicious food.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]나는 많은 음식을 먹어.[Language B]I eat a lot of food.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]나는 많은 아내가 있어.[Language B]I have a lot of wives.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]사람이 많아요.[Language B]There are lots of people.[Aux A][Aux B][Side 1]1-4[Side 2]해요체
+[Language A]음식이 많아.[Language B]There is a lot of food.[Aux A][Aux B][Side 1]1-4[Side 2]해체
+[Language A]나도 한국어를 말해.[Language B]I speak Korean as well.[Aux A][Aux B]in addition to other people[Side 1]1-4[Side 2]해체
+[Language A]나는 한국어도 말해.[Language B]I speak Korean as well.[Aux A][Aux B]in addition to other languages[Side 1]1-4[Side 2]해체
+[Language A]저도 사과를 먹어요.[Language B]I eat apples as well.[Aux A][Aux B]in addition to other people[Side 1]1-4[Side 2]해요체
+[Language A]저는 사과도 먹머요.[Language B]I eat apples as well.[Aux A][Aux B]in addition to other food[Side 1]1-4[Side 2]해요체
+[Language A]나도 그것을 알아.[Language B]I know that, too.[Aux A][Aux B]in addition to other people[Side 1]1-4[Side 2]해체
+[Language A]저도 피곤해요.[Language B]I am tired, too.[Aux A][Aux B]in addition to other people[Side 1]1-4[Side 2]해요체
+[Language A]나의 딸도 행복해.[Language B]My daughter is happy, too.[Aux A][Aux B]in addition to other people[Side 1]1-4[Side 2]해체

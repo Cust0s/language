@@ -1,0 +1,50 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]길[Language B]street[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]거리[Language B]road[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]손[Language B]hand[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]영어[Language B]English[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]택시[Language B]taxi[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]열차[Language B]train[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]역[Language B]train/subway station[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]버스 정류장[Language B]bus stop[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]비행기[Language B]airplane[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]자정거[Language B]bicycle[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]아내[Language B]wife[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]아이[Language B]child[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]아들[Language B]son[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]딸[Language B]daughter[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]남편[Language B]husband[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]아버지[Language B]father[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]어머니[Language B]mother[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]편지[Language B]letter[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]맛[Language B]taste[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]식사[Language B]meal[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]아침[Language B]morning[Aux A][Aux B]not 오[Side 1]1-4[Side 2]noun
+[Language A]아침식사[Language B]breakfast[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]물[Language B]water[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]사과[Language B]apple[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]돈[Language B]money[Aux A][Aux B][Side 1]1-4[Side 2]noun
+[Language A]오다[Language B]to come[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]끝내다[Language B]to finish[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]춤추다[Language B]to dance[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]알다[Language B]to know[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]걷다[Language B]to walk[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]배우다[Language B]to learn[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]연습하다[Language B]to practice[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]생각하다[Language B]to think[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]살다[Language B]to live[Aux A][Aux B][Side 1]1-4[Side 2]verb
+[Language A]끝나다[Language B]to be finished[Aux A][Aux B][Side 1]1-4[Side 2]passive verb
+[Language A]위험하다[Language B]to be dangerous[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]잘생기다[Language B]to be handsome[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]못생기다[Language B]to be ugly[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]피곤하다[Language B]to be tired[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]다르다[Language B]to be different[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]슬프다[Language B]to be sad[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]맛있다[Language B]to be delicious[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]재미있다[Language B]to be fun, to be funny[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]많다[Language B]to be many of, to be a lot of[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]행복하다[Language B]to be happy[Aux A][Aux B][Side 1]1-4[Side 2]adjective
+[Language A]거기[Language B]there[Aux A][Aux B]when close[Side 1]1-4[Side 2]adverb
+[Language A]저기[Language B]there[Aux A][Aux B]when farther away[Side 1]1-4[Side 2]adverb
+[Language A]지금[Language B]now[Aux A][Aux B][Side 1]1-4[Side 2]adverb
+[Language A]하지만[Language B]but[Aux A][Aux B][Side 1]1-4[Side 2]adverb

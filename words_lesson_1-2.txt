@@ -1,0 +1,31 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]나라[Language B]country[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]가방[Language B]bag, backpack[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]창문[Language B]window[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]잠지[Language B]magazine[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]방[Language B]room[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]냉장고[Language B]refrigerator[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]개[Language B]dog[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]강아지[Language B]puppy[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]고양이[Language B]cat[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]쥐[Language B]rat[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]펜[Language B]pen[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]전화기[Language B]phone[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]커피[Language B]coffee[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]식당[Language B]restaurant[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]건물[Language B]building[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]텔레비전[Language B]television[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]미국[Language B]USA, America[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]캐나다[Language B]Canada[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]호텔[Language B]hotel[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]학교[Language B]school[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]은행[Language B]bank[Aux A][Aux B][Side 1]1-2[Side 2]noun
+[Language A]안[Language B]inside[Aux A](~에)[Aux B][Side 1]1-2[Side 2]adverb
+[Language A]위[Language B]on top[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]밑[Language B]below[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]옆[Language B]beside[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]뒤[Language B]behind[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]앞[Language B]in front[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]여기[Language B]here[Aux A][Aux B][Side 1]1-2[Side 2]adverb
+[Language A]있다[Language B]to be at a location[Aux A][Aux B][Side 1]1-2[Side 2]verb
+[Language A]있다[Language B]to have something[Aux A][Aux B][Side 1]1-2[Side 2]adjective

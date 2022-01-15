@@ -1,0 +1,42 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]음식[Language B]food[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]케이크[Language B]cake[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]공항[Language B]airport[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]병원[Language B]hospital[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]공원[Language B]park[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]한국어[Language B]Korean[Aux A][Aux B]language[Side 1]1-3[Side 2]noun
+[Language A]머리[Language B]head[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]다리[Language B]leg[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]손가락[Language B]finger[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]귀[Language B]ear[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]팔[Language B]arm[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]눈[Language B]eye[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]입[Language B]mouth[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]배[Language B]stomach[Aux A]body part[Aux B][Side 1]1-3[Side 2]noun
+[Language A]버스[Language B]bus[Aux A][Aux B][Side 1]1-3[Side 2]noun
+[Language A]배[Language B]boat[Aux A]not body part[Aux B][Side 1]1-3[Side 2]noun
+[Language A]우리[Language B]us, we[Aux A][Aux B][Side 1]1-3[Side 2]pronoun
+[Language A]먹다[Language B]to eat[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]가다[Language B]to go[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]만나다[Language B]to meet[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]닫다[Language B]to close[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]열다[Language B]to open[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]원하다[Language B]to want[Aux A][Aux B]an object[Side 1]1-3[Side 2]verb
+[Language A]만들다[Language B]to make[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]하다[Language B]to do[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]말하다[Language B]to speak[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]이해하다[Language B]to understand[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]좋아하다[Language B]to like[Aux A][Aux B][Side 1]1-3[Side 2]verb
+[Language A]크다[Language B]to be big[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]작다[Language B]to be small[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]새롭다[Language B]to be new[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]낡다[Language B]to be old[Aux A][Aux B]not age[Side 1]1-3[Side 2]adjective
+[Language A]비싸다[Language B]to be expensive[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]싸다[Language B]to not be expensive[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]아름답다[Language B]to be beautiful[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]뚱뚱하다[Language B]to be fat, to be chubby[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]길다[Language B]to be long[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]좋다[Language B]to be good[Aux A][Aux B][Side 1]1-3[Side 2]adjective
+[Language A]아주[Language B]very[Aux A][Aux B](ㅇ)[Side 1]1-3[Side 2]adverb
+[Language A]매우[Language B]very[Aux A][Aux B](ㅁ)[Side 1]1-3[Side 2]adverb
+[Language A]너무[Language B]too[Aux A][Aux B][Side 1]1-3[Side 2]adverb

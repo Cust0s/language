@@ -1,0 +1,28 @@
+[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]저는 케이크를 만들어요.[Language B]I make a cake.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나는 베를 원해.[Language B]I want a boat.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]저는 한국어를 말해요.[Language B]I speak Korean.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나는 공원에 가.[Language B]I go to the park.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]저는 문을 닫아요.[Language B]I close the door.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나는 창문을 열어.[Language B]I open the window.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]나는 이해해.[Language B]I understand.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]저는 아름다워요.[Language B]I am beautiful.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나는 작아.[Language B]I am small.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]이 버스는 커요.[Language B]This bus is big.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]그 병원은 새로워요.[Language B]That hospital is new.[Aux A][Aux B]from context[Side 1]1-3[Side 2]해요체
+[Language A]이 공원은 매우 작아.[Language B]This park is very small.[Aux A][Aux B]ㅁ[Side 1]1-3[Side 2]해체
+[Language A]그 사람은 뚱뚱해요.[Language B]That person is fat.[Aux A][Aux B]from context[Side 1]1-3[Side 2]해요체
+[Language A]선생님의 차는 커.[Language B]The teacher's car is big.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]저는 선생님의 차를 원해요.[Language B]I want my teacher's car.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나의 손가락은 길어.[Language B]My finger is long.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]그 여자의 눈은 아름다워요.[Language B]That women's eyes are beautiful.[Aux A][Aux B]from context[Side 1]1-3[Side 2]해요체
+[Language A]나는 친구를 만나.[Language B]I meet my/a friend.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]이 음식은 좋아요.[Language B]This food is good.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]그 선생님은 좋아.[Language B]That teacher is good.[Aux A][Aux B]from context[Side 1]1-3[Side 2]해체
+[Language A]이 학교는 좋아요.[Language B]This school is good.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]나는 이 음식을 좋아헤.[Language B]I like this food.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]저는 그 선생님을 좋아해요.[Language B]I like that teacher.[Aux A][Aux B]from context[Side 1]1-3[Side 2]해요체
+[Language A]우리는 너를 좋아해.[Language B]We like you.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]선생님은 우리를 좋아해요.[Language B]The teacher likes us.[Aux A][Aux B][Side 1]1-3[Side 2]해요체
+[Language A]우리 집은 커.[Language B]Our house is big.[Aux A][Aux B][Side 1]1-3[Side 2]해체
+[Language A]우리 선생님은 남자예요.[Language B]Our teacher is a man.[Aux A][Aux B][Side 1]1-3[Side 2]해요체

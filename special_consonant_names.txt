@@ -1,0 +1,15 @@
+[name aux]
+[Language A]ㄱ[Language B]기역
+[Language A]ㄴ[Language B]니은
+[Language A]ㄷ[Language B]디귿
+[Language A]ㄹ[Language B]리을
+[Language A]ㅁ[Language B]미음
+[Language A]ㅂ[Language B]비읍
+[Language A]ㅅ[Language B]시옷
+[Language A]ㅇ[Language B]이응
+[Language A]ㅈ[Language B]지읒
+[Language A]ㅊ[Language B]치읓
+[Language A]ㅋ[Language B]키읔
+[Language A]ㅌ[Language B]티읕
+[Language A]ㅍ[Language B]피읖
+[Language A]ㅎ[Language B]히읗

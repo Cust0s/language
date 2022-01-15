@@ -1,0 +1,39 @@
+[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]나는 친구를 만난다.[Language B]I meet my friend.[Aux A][Aux B]"My" can be omitted[Side 1]1-5[Side 2]해라체
+[Language A]나는 그것을 이해한다.[Language B]I understand that.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]나는 한국어를 배운다.[Language B]I learn Korean.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 집에 간다.[Language B]I go to the house.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 밥을 먹었다.[Language B]I ate rice.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 문을 닫았다.[Language B]I closed the door.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 창문을 열었다.[Language B]I opened the window.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 한국어를 공부했다.[Language B]I studied Korean.[Aux A]"공부하였다" is also correct[Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 박물관에 갔다.[Language B]I went to the museum.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]삼촌은 가게에 왔다.[Language B]My uncle came to the store.[Aux A][Aux B]"My" can be omitted[Side 1]1-5[Side 2]해라체
+[Language A]오빠는 영어를 배웠다.[Language B]My older brother learned English.[Aux A][Aux B]when speaker is female[Side 1]1-5[Side 2]해라체
+[Language A]나는 공을 던졌다.[Language B]I threw the ball.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 길을 건넜다.[Language B]I crossed the street.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 친구를 만났다.[Language B]I met my friends[Aux A][Aux B]"My" can be omitted[Side 1]1-5[Side 2]해라체
+[Language A]나는 한국어를 공부했다.[Language B]I studied Korean.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 먹겠다.[Language B]I will eat.[Aux A][Aux B]assertive[Side 1]1-5[Side 2]해라체
+[Language A]나는 가겠다.[Language B]I will go.[Aux A][Aux B]assertive[Side 1]1-5[Side 2]해라체
+[Language A]나는 배우겠다.[Language B]I will learn.[Aux A][Aux B]assertive[Side 1]1-5[Side 2]해라체
+[Language A]그 선생님은 아름답다.[Language B]That teacher is beautiful.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]그 길은 길다.[Language B]That street is long.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]나의 손은 크다.[Language B]My hand is big.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]그 길은 길었다.[Language B]That street was long.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]그 음식은 맛있었다.[Language B]That food was delicious.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]그 선생님은 좋았다.[Language B]That teacher was good.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]그 식당이 오래되었다.[Language B]That restaurant was old.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]우리는 오래된 집에 갔다.[Language B]We went to the old house.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]이것은 비쌌다.[Language B]This was expensive.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]그 남자는 잘생겼다.[Language B]That man was handsome.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]그 사람은 뚱뚱했다.[Language B]That person was fat.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]나는 행복하겠다.[Language B]I will be happy.[Aux A][Aux B]assertive[Side 1]1-5[Side 2]해라체
+[Language A]그것은 맛있겠다.[Language B]That will be delicious.[Aux A][Aux B]from context[Side 1]1-5[Side 2]해라체
+[Language A]나는 배고프겠다.[Language B]I will be hungry.[Aux A][Aux B]assertive[Side 1]1-5[Side 2]해라체
+[Language A]나는 펜이 있다.[Language B]I have a pen.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 차가 있다.[Language B]I have a car.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 가방이 있다.[Language B]I have a bag.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]나는 은행 안에 있다.[Language B]I am inside the bank.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]개는 집 안에 있다.[Language B]The dog is inside the house.[Aux A][Aux B][Side 1]1-5[Side 2]해라체
+[Language A]고양이는 의자 밑에 있다.[Language B]The cat is under the chair.[Aux A][Aux B][Side 1]1-5[Side 2]해라체

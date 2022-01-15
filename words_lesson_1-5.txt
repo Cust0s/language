@@ -1,0 +1,55 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]동생[Language B]younger sibling[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]남동생[Language B]younger brother[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]여동생[Language B]younger sister[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]형[Language B]older brother[Aux A][Aux B]speaker male[Side 1]1-5[Side 2]noun
+[Language A]오빠[Language B]older brother[Aux A][Aux B]speaker female[Side 1]1-5[Side 2]noun
+[Language A]누나[Language B]older sister[Aux A][Aux B]speaker male[Side 1]1-5[Side 2]noun
+[Language A]언니[Language B]older sister[Aux A][Aux B]speaker female[Side 1]1-5[Side 2]noun
+[Language A]삼촌[Language B]uncle[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]이모[Language B]aunt[Aux A][Aux B]maternal[Side 1]1-5[Side 2]noun
+[Language A]고모[Language B]aunt[Aux A][Aux B]paternal[Side 1]1-5[Side 2]noun
+[Language A]아저씨[Language B]older man not related to you[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]아주머니[Language B]older woman not related to you[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]할아버지[Language B]grandfather[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]할머니[Language B]grandmother[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]친구[Language B]friend[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]사진[Language B]picture[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]안경[Language B]glasses[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]비밀[Language B]secret[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]비[Language B]rain[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]가게[Language B]store, shop[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]박물관[Language B]museum[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]가스 레인지[Language B]stove[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]오리[Language B]duck[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]꼬리[Language B]tail[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]공[Language B]ball[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]기대하다[Language B]to expect[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]건너다[Language B]to cross[Aux A][Aux B]a road, etc.[Side 1]1-5[Side 2]verb
+[Language A]던지다[Language B]to throw[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]싫어하다[Language B]to not like[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]떠나다[Language B]to leave somewhere[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]농담하다[Language B]to joke[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]공부하다[Language B]to study[Aux A][Aux B][Side 1]1-5[Side 2]verb
+[Language A]지루하다[Language B]to be boring[Aux A][Aux B][Side 1]1-5[Side 2]adjective
+[Language A]마르다[Language B]to be thin[Aux A][Aux B]for a person[Side 1]1-5[Side 2]adjective
+[Language A]멀다[Language B]to be far away[Aux A][Aux B][Side 1]1-5[Side 2]adjective
+[Language A]마르다[Language B]to be dry[Aux A]not to be thin[Aux B][Side 1]1-5[Side 2]adjective
+[Language A]비슷하다[Language B]to be similar[Aux A][Aux B][Side 1]1-5[Side 2]adjective
+[Language A]삻다[Language B]to not be good[Aux A][Aux B][Side 1]1-5[Side 2]adjective
+[Language A]오래되다[Language B]to be old[Aux A][Aux B]for an object[Side 1]1-5[Side 2]adjective
+[Language A]배고프다[Language B]to be hungry[Aux A][Aux B][Side 1]1-5[Side 2]adjective
+[Language A]오늘[Language B]today[Aux A][Aux B][Side 1]1-5[Side 2]adverb
+[Language A]어제[Language B]yesterday[Aux A][Aux B][Side 1]1-5[Side 2]adverb
+[Language A]내일[Language B]tomorrow[Aux A][Aux B][Side 1]1-5[Side 2]adverb
+[Language A]모레[Language B]the day after tomorrow[Aux A][Aux B][Side 1]1-5[Side 2]adverb
+[Language A]년[Language B]year[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]일[Language B]day[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]시간[Language B]time[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]월요일[Language B]Monday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]화요일[Language B]Tuesday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]수요일[Language B]Wednesday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]목요일[Language B]Thursday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]금요일[Language B]Friday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]토요일[Language B]Saturday[Aux A][Aux B][Side 1]1-5[Side 2]noun
+[Language A]일요일[Language B]Sunday[Aux A][Aux B][Side 1]1-5[Side 2]noun

@@ -1,0 +1,16 @@
+[name aux][name side 1]Comment
+[Language A]일[Language B]one[Aux A][Aux B]Sino Korean
+[Language A]이[Language B]two[Aux A][Aux B]Sino Korean
+[Language A]삼[Language B]three[Aux A][Aux B]Sino Korean
+[Language A]사[Language B]four[Aux A][Aux B]Sino Korean
+[Language A]오[Language B]five[Aux A][Aux B]Sino Korean
+[Language A]육[Language B]six[Aux A][Aux B]Sino Korean
+[Language A]칠[Language B]seven[Aux A][Aux B]Sino Korean
+[Language A]팔[Language B]eight[Aux A][Aux B]Sino Korean
+[Language A]구[Language B]nine[Aux A][Aux B]Sino Korean
+[Language A]십[Language B]ten[Aux A][Aux B]Sino Korean
+[Language A]백[Language B]one hundred[Aux A][Aux B]Sino Korean
+[Language A]천[Language B]one thousand[Aux A][Aux B]Sino Korean
+[Language A]만[Language B]ten thousand[Aux A][Aux B]Sino Korean
+[Language A]영[Language B]zero[Aux A][Aux B]used in Maths etc.
+[Language A]공[Language B]zero[Aux A][Aux B]used in phone numbers

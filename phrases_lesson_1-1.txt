@@ -1,0 +1,11 @@
+[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]나는 여자야.[Language B]I am a woman.[Aux A][Aux B][Side 1]1-1[Side 2]해체
+[Language A]저는 선생님이에요.[Language B]I am a teacher.[Aux A][Aux B][Side 1]1-1[Side 2]해요체
+[Language A]나는 사람이야.[Language B]I am a person.[Aux A][Aux B][Side 1]1-1[Side 2]해체
+[Language A]그 사람은 선생님이야.[Language B]That person is a teacher.[Aux A][Aux B]from context[Side 1]1-1[Side 2]해체 
+[Language A]이것은 탁자예요.[Language B]This is a table.[Aux A][Aux B][Side 1]1-1[Side 2]해요체
+[Language A]저것은 침대야.[Language B]That is a bed.[Aux A][Aux B]far away[Side 1]1-1[Side 2]해체
+[Language A]그 사람은 남자예요.[Language B]That person is a man.[Aux A][Aux B]from context[Side 1]1-1[Side 2]해요체
+[Language A]그 사람은 여자야.[Language B]That person is a woman.[Aux A][Aux B]from context[Side 1]1-1[Side 2]해체
+[Language A]그것은 차예요.[Language B]That is a car.[Aux A][Aux B]from context[Side 1]1-1[Side 2]해요체
+[Language A]이것은 나무야.[Language B]This is a tree.[Aux A][Aux B][Side 1]1-1[Side 2]해체

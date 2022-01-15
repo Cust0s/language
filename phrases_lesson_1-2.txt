@@ -1,0 +1,17 @@
+[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]저는 펜이 있어요.[Language B]I have a pen.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]나는 차가 있어.[Language B]I have a car.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]저는 잡지가 있어요.[Language B]I have a magazine.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]나는 가방이 있어.[Language B]I have a backpack.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]나는 학교에 있어.[Language B]I am at school.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]저는 캐나다에 있어요.[Language B]I am in Canada.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]나는 학교 앞에 있어.[Language B]I am in front of the school.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]저는 학교 뒤에 있어요.[Language B]I am behind the school.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]나는 학교 옆에 있어.[Language B]I am beside the school.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]저는 은행 안에 있어요.[Language B]I am inside the bank.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]개는 집 안에 있어.[Language B]The dog is inside the house.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]고양이는 의자 밑에 있어요.[Language B]The cat is under the chair.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]식당은 은행 옆에 있어.[Language B]The restaurant is next to the bank.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]호텔은 학교 옆에 있어요.[Language B]The hotel is next to the school.[Aux A][Aux B][Side 1]1-2[Side 2]해요체
+[Language A]고양이가 집 뒤에 있어.[Language B]The cat is behind the house.[Aux A][Aux B][Side 1]1-2[Side 2]해체
+[Language A]커피가 냉장고에 있어.[Language B]The coffee is in the fridge.[Aux A][Aux B][Side 1]1-2[Side 2]해체

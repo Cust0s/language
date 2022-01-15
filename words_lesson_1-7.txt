@@ -1,0 +1,48 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]눈썹[Language B]eyebrow[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]교사[Language B]teacher[Aux A][Aux B]profession[Side 1]1-7[Side 2]noun
+[Language A]반[Language B]class of students[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]직장[Language B]location of work[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]벽[Language B]wall[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]털[Language B]hair, fur[Aux A][Aux B]does not refer to hair on head, but other human hair[Side 1]1-7[Side 2]noun
+[Language A]머리카락[Language B]hair[Aux A][Aux B]hair on head[Side 1]1-7[Side 2]noun
+[Language A]저녁[Language B]dinner, evening[Aux A][Aux B]can be used for both dinner and evening[Side 1]1-7[Side 2]noun
+[Language A]저녁시간[Language B]evening[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]저녁식사[Language B]dinner[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]점심[Language B]lunch, noonish[Aux A][Aux B]can be used for both lunch and noonish[Side 1]1-7[Side 2]noun
+[Language A]점심시간[Language B]noonish[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]점심식사[Language B]lunch[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]옷[Language B]clothes[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]오전[Language B]morning[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]오후[Language B]afternoon[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]여름[Language B]summer[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]가을[Language B]fall[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]겨울[Language B]winter[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]붐[Language B]spring[Aux A][Aux B][Side 1]1-7[Side 2]noun
+[Language A]찾다[Language B]to seach for, to find[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]가르치다[Language B]to teach[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]일하다[Language B]to work[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]짓다[Language B]to build[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]가지다[Language B]to own, to possess[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]잠그다[Language B]to lock[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]잊다[Language B]to forget[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]돕다[Language B]to help[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]주다[Language B]to give[Aux A][Aux B][Side 1]1-7[Side 2]verb
+[Language A]맞다[Language B]to be correct[Aux A][Aux B][Side 1]1-7[Side 2]verb[Side 3]looks, feels, sounds like adjective, but is a verb in Korean
+[Language A]쉽다[Language B]to be easy[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]덥다[Language B]to be hot[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]그립다[Language B]to miss[Aux A][Aux B]a thing[Side 1]1-7[Side 2]adjective[Side 3]Is a verb in English but an adjective in Korean
+[Language A]귀엽다[Language B]to be cute[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]춥다[Language B]to be cold[Aux A][Aux B][Side 1]1-7[Side 2]adjective[Side 3]used when talking about wheather or one's body but not temperature of objects
+[Language A]어렵다[Language B]to be difficult[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]더럽다[Language B]to be dirty[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]바쁘다[Language B]to be busy[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]같다[Language B]to be the same[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]안전하다[Language B]to be safe[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]딱딱하다[Language B]to be hard, to be rigid[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]부드럽다[Language B]to be soft[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]가능하다[Language B]to be possible[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]불가능하다[Language B]to be impossible[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]예쁘다[Language B]to be pretty[Aux A][Aux B][Side 1]1-7[Side 2]adjective
+[Language A]일찍[Language B]early[Aux A][Aux B][Side 1]1-7[Side 2]adverb
+[Language A]매일[Language B]everyday[Aux A][Aux B][Side 1]1-7[Side 2]adverb

@@ -1,0 +1,34 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]한국[Language B]Korea[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]도시[Language B]city[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]이름[Language B]name[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]저[Language B]I, me[Aux A][Aux B]formal[Side 1]1-1[Side 2]pronoun
+[Language A]나[Language B]I, me[Aux A][Aux B]informal[Side 1]1-1[Side 2]pronoun
+[Language A]남자[Language B]man[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]여자[Language B]woman[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]이[Language B]this[Aux A][Aux B][Side 1]1-1[Side 2]determiner
+[Language A]그[Language B]that[Aux A][Aux B]When referred from context[Side 1]1-1[Side 2]determiner
+[Language A]저[Language B]that[Aux A][Aux B]When something is far away[Side 1]1-1[Side 2]determiner
+[Language A]것[Language B]thing[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]이것[Language B]this (thing)[Aux A][Aux B][Side 1]1-1[Side 2]pronoun
+[Language A]그것[Language B]that (thing)[Aux A][Aux B]When referred from context[Side 1]1-1[Side 2]pronoun
+[Language A]저것[Language B]that (thing)[Aux A][Aux B]When something is far away[Side 1]1-1[Side 2]pronoun
+[Language A]의자[Language B]chair[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]탁자[Language B]table[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]선생님[Language B]teacher[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]침대[Language B]bed[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]집[Language B]house[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]차[Language B]car[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]사람[Language B]person[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]책[Language B]book[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]컴퓨터[Language B]computer[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]나무[Language B]tree[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]소파[Language B]sofa[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]중국[Language B]China[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]일본[Language B]Japan[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]문[Language B]door[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]의사[Language B]doctor[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]학생[Language B]student[Aux A][Aux B][Side 1]1-1[Side 2]noun
+[Language A]이다[Language B]to be[Aux A][Aux B][Side 1]1-1[Side 2]adverb
+[Language A]네[Language B]yes[Aux A][Aux B][Side 1]1-1[Side 2]
+[Language A]아니[Language B]no[Aux A][Aux B][Side 1]1-1[Side 2]

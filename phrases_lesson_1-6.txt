@@ -1,0 +1,25 @@
+[name aux][name side 1]Lesson[name side 2]Formality
+[Language A]나는 항상 저녁에 음식을 멋어.[Language B]I always eat food in the evening.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]나는 나의 선생님을 항상 봐.[Language B]I always see my teacher.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]나는 항상 아침에 운동해.[Language B]I always excercise in the morning.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]저는 항상 저녁에 음식을 먹어요.[Language B]I always eat food in the evening.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 항상 나의 선생님을 봐요.[Language B]I always see my teacher.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 항상 아침에 운동해요.[Language B]I always excercise in the morning.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 항상 저녁에 음식을 먹습니다.[Language B]I always eat food in the evening.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]저는 항상 저의 선생님을 봅니다.[Language B]I always see my teacher.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]저는 항상 아침에 운동합니다.[Language B]I always excercise in the morning.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]나는 먹었어.[Language B]I ate.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]나는 들어봤어.[Language B]I listened.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]나는 운동했어.[Language B]I excercised.[Aux A][Aux B][Side 1]1-6[Side 2]해체
+[Language A]저는 먹었어요.[Language B]I ate.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 들어봤어요.[Language B]I listened.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 운동했어요.[Language B]I excercised.[Aux A][Aux B][Side 1]1-6[Side 2]해요체
+[Language A]저는 먹었습니다.[Language B]I ate.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]저는 들어봤습니다.[Language B]I listened.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]저는 운동했습니다.[Language B]I excercised.[Aux A][Aux B][Side 1]1-6[Side 2]하십시오체
+[Language A]나는 먹겠어.[Language B]I will eat.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]해체
+[Language A]나는 배우겠어.[Language B]I will learn.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]해제
+[Language A]저는 먹겠어요.[Language B]I will eat.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]해요체
+[Language A]저는 배우겠어요.[Language B]I will learn.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]해요체
+[Language A]저는 먹겠습니다.[Language B]I will eat.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]하십시오체
+[Language A]저는 배우겠습니다.[Language B]I will learn.[Aux A][Aux B]assertive[Side 1]1-6[Side 2]하십시오체

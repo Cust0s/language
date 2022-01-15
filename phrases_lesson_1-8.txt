@@ -1,0 +1,56 @@
+[name aux][name side 1]Lesson[name side 2]Formality[name side 3]Comment
+[Language A]저는 병원을 지었어요.[Language B]I built a hospital.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 병원에 갔어요.[Language B]I went to the/a hospital.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 병원을 공원 옆에 지었어요.[Language B]I built a hospital beside the park.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 화요일에 가겠어요.[Language B]I will go on Tuesday.[Aux A][Aux B]assertive[Side 1]1-8[Side 2]해요체
+[Language A]저는 저녁에 공부했어요.[Language B]I studied in the evening.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 가을에 공원 옆에 병원을 지었어요.[Language B]I built a hospital beside the park in the fall.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]여름에 저는 공부하겠어요.[Language B]I will study in summer.[Aux A][Aux B]assertive[Side 1]1-8[Side 2]해요체
+[Language A]저는 안국에 오늘 도착헸어요.[Language B]I arrived in Korea today.[Aux A][Aux B][Side 1]1-8[Side 2]해요제
+[Language A]저는 도서관에 어제 갔어요.[Language B]I went to the library yesterday.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 내일 한국어를 공부하겠어요.[Language B]I will study Korean tomorrow.[Aux A][Aux B]assertive[Side 1]1-8[Side 2]해요체
+[Language A]저는 저의 친구를 자주 만나요.[Language B]I meet my friend often.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 밥을 많이 먹었어요.[Language B]I ate a lot of food.[Aux A][Aux B][Side 1]1-8[Side 2]해요체[Side 3]rice is often used in general food situations too.
+[Language A]저는 집에 바로 갔어요.[Language B]I went home immediately.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 숙제를 빨리 했어요.[Language B]I did my homework quickly.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 많은 밥을 먹었어요.[Language B]I ate a lot of rice.[Aux A][Aux B]using adjective[Side 1]1-8[Side 2]해요체
+[Language A]저는 밥을 많이 먹었어요.[Language B]I ate a lot of rice.[Aux A][Aux B]using adverb[Side 1]1-8[Side 2]해요체
+[Language A]저는 조용하게 먹었어요.[Language B]I ate quitely.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 거리를 안전하게 건넜어요.[Language B]I crossed the street safely.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 행복하게 살았어요.[Language B]I lived happily.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 매우 빨리 달렸어요.[Language B]I ran really quickly.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 빨리 먹었어요.[Language B]I ate fast.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 바로 떠났어요.[Language B]I left immediately.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 저의 친구를 목요일에 자주 만나요.[Language B]I often meet my friend on Thursday.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 가끔 너무 많이 먹어요.[Language B]I eat too much sometimes.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]그 여자는 안 예뻐요.[Language B]That girl isn't pretty.[Aux A][Aux B]from context, using 안[Side 1]1-8[Side 2]해요체
+[Language A]저는 생선을 안 좋아해요.[Language B]I don't like fish.[Aux A][Aux B]using 안[Side 1]1-8[Side 2]해요체
+[Language A]저는 내일 학교에 안 가겠어요.[Language B]I'm not going to school tomorrow.[Aux A][Aux B]assertive, using 안[Side 1]1-8[Side 2]해요체
+[Language A]그 여자는 예쁘지 많아요.[Language B]That girl isn't pretty.[Aux A][Aux B]from context, using ~지 않다[Side 1]1-8[Side 2]해요체
+[Language A]저는 생선을 좋아하지 않아요.[Language B]I don't like fish.[Aux A][Aux B]using ~지 않다[Side 1]1-8[Side 2]해요체
+[Language A]저는 내일 학교에 가지 않겠어요.[Language B]I'm not going to school tomorrow.[Aux A][Aux B]using ~자 않다[Side 1]1-8[Side 2]해요체
+[Language A]저는 공부를 안 했어요.[Language B]I didn't study.[Aux A][Aux B]using 안, seperating ~하다[Side 1]1-8[Side 2]해요체[Side 3]using 안 with a ~하다 verb, it is common to split the verb.
+[Language A]저는 실수를 안 했어요.[Language B]I didn't make a mistake.[Aux A][Aux B]using 안, seperating ~하다[Side 1]1-8[Side 2]해요체[Side 3]using 안 with a ~하다 verb, it is common to split the verb.
+[Language A]저는 여행을 안 했어요.[Language B]I didn't travel.[Aux A][Aux B]using 안, seperating ~하다[Side 1]1-8[Side 2]해요체[Side 3]using 안 with a ~하다 verb, it is common to split the verb.
+[Language A]저는 공부하지 않았어요.[Language B]I didn't study.[Aux A][Aux B]using ~지 않다, no seperation[Side 1]1-8[Side 2]해요체
+[Language A]저는 공부를 하지 않았어요.[Language B]I didn't study.[Aux A][Aux B]using ~지 않다, seperating ~하다[Side 1]1-8[Side 2]해요체
+[Language A]저는 실수하지 않았어요.[Language B]I didn't make a mistake.[Aux A][Aux B]using ~지 않다, no seperation[Side 1]1-8[Side 2]해요체
+[Language A]저는 실수를 하지 않았어요.[Language B]I didn't make a mistake.[Aux A][Aux B]using ~지 않다, seperating ~하다[Side 1]1-8[Side 2]해요체
+[Language A]저는 여행하지 않았어요.[Language B]I didn't travel.[Aux A][Aux B]using ~지 않다, no seperation[Side 1]1-8[Side 2]해요체
+[Language A]저는 여행을 하지 않았어요.[Language B]I didn't travel.[Aux A][Aux B]using ~지 않다, seperating ~하다[Side 1]1-8[Side 2]해요체
+[Language A]저는 안 행복해요.[Language B]I am not happy.[Aux A][Aux B]using 안, no seperation.[Side 1]1-8[Side 2]해요체
+[Language A]저는 행복하지 않아요.[Language B]I am not happy.[Aux A][Aux B]using ~지 않다, no seperation[Side 1]1-8[Side 2]해요체[Side 3]adjectives can not be seperated when using ~지 않다.
+[Language A]저는 밥을 천천히 먹었어요.[Language B]I ate rice slowly.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 선생님이 아니에요.[Language B]I am not a teacher.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]나는 너의 친구가 아니야.[Language B]I am not your friend.[Aux A][Aux B][Side 1]1-8[Side 2]해체
+[Language A]저는 대학생이 아니에요.[Language B]I am not a university student.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 돈이 없어요.[Language B]I don't have money.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 시간이 없어요.[Language B]I don't have time.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]우리는 차가 없어요.[Language B]We don't have a car.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저의 친구는 지금 한국에 없어요.[Language B]My friend is not in Korea now.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]사람이 없었어요.[Language B]There was no people.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]저는 과일을 싫어해요.[Language B]I dislike fruit.[Aux A][Aux B]using verb[Side 1]1-8[Side 2]해요체
+[Language A]저는 과일을 좋아해요.[Language B]I like fruit.[Aux A][Aux B][Side 1]1-8[Side 2]해요체
+[Language A]그 선생님은 좋다.[Language B]That teacher is good.[Aux A][Aux B]from context[Side 1]1-8[Side 2]해라체
+[Language A]이 학교는 좋다.[Language B]This school is good.[Aux A][Aux B][Side 1]1-8[Side 2]해라체
+[Language A]저는 과일이 싫어요.[Language B]I dislike fruit.[Aux A][Aux B]using adjective[Side 1]1-8[Side 2]해요체

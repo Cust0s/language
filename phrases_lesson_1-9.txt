@@ -1,0 +1,69 @@
+[name aux][name side 1]Lesson[name side 2]Formality[name side 3]Comment
+[Language A]나는 좋은 학생이야.[Language B]I am a good student.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]그것은 책이야.[Language B]That is a book.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해체
+[Language A]나는 선생님이야.[Language B]I am a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]이것은 여권이야.[Language B]This is a passport.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]그것은 사과야.[Language B]That is an apple.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해체
+[Language A]나는 의사야.[Language B]I am a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]야구는 좋은 스포츠야.[Language B]Baseball is a good sport.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 학생이 아니야.[Language B]I am not a student.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]그것은 책이 아니야.[Language B]That is not a book.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해체
+[Language A]그것은 사진이에요.[Language B]That is a picture.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해요체
+[Language A]저는 선생님이에요.[Language B]I am a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 좋은 학생이에요.[Language B]I am a good student.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]이 사람은 저의 누나예요.[Language B]This (person) is my older sister.[Aux A][Aux B]when speaker is male[Side 1]1-9[Side 2]해요체
+[Language A]저는 의사예요.[Language B]I am a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저것은 사과예요.[Language B]That is an apple.[Aux A][Aux B]far away[Side 1]1-9[Side 2]해요체
+[Language A]저는 학생이 아니에요.[Language B]I am not a student.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 의사입니다.[Language B]I am a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]그 사람은 저의 형입니다.[Language B]That person is my older brother.[Aux A][Aux B]when speaker is male, from context[Side 1]1-9[Side 2]하십시오체
+[Language A]저는 선생님입니다.[Language B]I am a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 좋은 학생입니다.[Language B]I am a good student.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]이 고기는 돼지고기입니다.[Language B]This meat is pork.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 의사가 아닙니다.[Language B]I am not a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 학생이 아닙니다.[Language B]I am not a student.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]그것은 저의 직업이 아닙니다.[Language B]That is not my job.[Aux A][Aux B]from context[Side 1]1-9[Side 2]하십시오체
+[Language A]그것은 저의 여권이 아닙니다.[Language B]That is not my passport.[Aux A][Aux B]from context[Side 1]1-9[Side 2]하십시오체
+[Language A]그 건물은  극장이 아닙니다.[Language B]That building is not a theatre.[Aux A][Aux B]from context[Side 1]1-9[Side 2]하십시오체
+[Language A]나는 바쁜 선생님이었어.[Language B]I was a busy teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 학생이었어.[Language B]I was a student.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 선생님이었어.[Language B]I was a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 나쁜 애기였어.[Language B]I was a bad baby.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 나쁜 의사였어.[Language B]I was a bad doctor.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]그것은 큰 비밀이었어요.[Language B]That was a big secret.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해요체
+[Language A]저는 선생님이었어요.[Language B]I was a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 의사였어요.[Language B]I was a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 나쁜 애기였어요.[Language B]I was a bad baby.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]나는 선생님이었다.[Language B]I was a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]나는 의사였다.[Language B]I was a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]저는 선생님이었습니다.[Language B]I was a teacher.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 의사였습니다.[Language B]I was a doctor.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]나는 학생이 아니었어.[Language B]I was not a student.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 학생이 아니었다.[Language B]I was not a student.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]저는 학생이 아니었어요.[Language B]I was not a student.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 학생이 아니었습니다.[Language B]I was not a student.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 밥을 먹을 것이에요.[Language B]I will eat rice.[Aux A]저는 밥을 먹을 거예요.[Aux B][Side 1]1-9[Side 2]해요체
+[Language A]나는 내일 친구를 만날 것이야.[Language B]I will meet my friend tomorrow.[Aux A]나는 내일 친구를 만날 거야.[Aux B][Side 1]1-9[Side 2]해체
+[Language A]저는 내일 학교에 갈 것입니다.[Language B]I will go to school tomorrow.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 영어를 공부할 거예요.[Language B]I will study English.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 문을 열 거예요.[Language B]I will open the door.[Aux A]irregular: 열 + 을 = 열[Aux B][Side 1]1-9[Side 2]해요체
+[Language A]저는 곧 선생님이 될 것입니다.[Language B]I will become a teacher soon.[Aux A][Aux B][Side 1]1-9[Side 2]하십시오체
+[Language A]저는 곧 선생님일 거예요.[Language B]I will be a teacher soon.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]나는 미래에 의사가 될 거야.[Language B]I will become a doctor in the future.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]나는 미래에 의사일 거야.[Language B]I will be a doctor in the future.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]한국이 곧 좋은 나라가 될 것이다.[Language B]Korea will become a good country soon.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]한국이 곧 좋은 나라일 것이다.[Language B]Korea will be a good country soon.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]이 장소는 공원이 될 것이다.[Language B]This place will become a park.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]이 장소는 공원일 것이다.[Language B]This place will be a park.[Aux A][Aux B][Side 1]1-9[Side 2]해라체
+[Language A]나는 미래에 의사가 되지 않을 거야.[Language B]I won't become a doctor in the future.[Aux A][Aux B]using ~지 않다[Side 1]1-9[Side 2]해체
+[Language A]나는 미래에 의사가 아닐 거야.[Language B]I won't be a doctor in the future.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]한국이 곧 좋은 나라가 되지 않을 거야.[Language B]Korea won't be a good country soon.[Aux A]using ~지 않다[Aux B][Side 1]1-9[Side 2]해체
+[Language A]한국이 곧 좋은 나라가 아닐 거야.[Language B]Korea won't be a good country soon.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]이 장소는 공원이 되지 않을 거야.[Language B]This place won't become a park.[Aux A][Aux B]using ~지 않다[Side 1]1-9[Side 2]해체
+[Language A]이 장소는 공원이 아닐 거야.[Language B]This place won't be a park.[Aux A][Aux B][Side 1]1-9[Side 2]해체
+[Language A]그 사람이 의사일 거예요.[Language B]That person is probably/most likely a doctor.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해요체
+[Language A]그것은 여권일 거예요.[Language B]That is probably/most likely a passport.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해요체
+[Language A]문제는 돈일 거예요.[Language B]The problem is probably/most likely money.[Aux A][Aux B][Side 1]1-9[Side 2]해요체
+[Language A]그 사람이 의사가 아닐 거야.[Language B]That person is probably/most likely not a doctor.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해체
+[Language A]그것은 여권이 아닐 거야.[Language B]That is probably/most likely not a passport.[Aux A][Aux B]from context[Side 1]1-9[Side 2]해체
+[Language A]문제는 돈이 아닐 거야.[Language B]The problem is probably/most likely not money.[Aux A][Aux B][Side 1]1-9[Side 2]해체

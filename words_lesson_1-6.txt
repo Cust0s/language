@@ -1,0 +1,50 @@
+[name aux][name side 1]Lesson[name side 2]Word Type[name side 3]Comment
+[Language A]신발[Language B]shoe[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]남방[Language B]shirt[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]질문[Language B]question[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]문제[Language B]question/problem[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]나이[Language B]age[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]화장실[Language B]bathroom/restroom[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]부장님[Language B]boss[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]분위기[Language B]atmosphere[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]차[Language B]tea[Aux A]drink[Aux B][Side 1]1-6[Side 2]noun
+[Language A]바지[Language B]pants[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]교실[Language B]classroom[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]급식[Language B]food at school[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]교감선생님[Language B]vice principal[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]교장선생님[Language B]pricipal[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]풀[Language B]glue[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]수도[Language B]capital city[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]병[Language B]bottle[Aux A]item[Aux B][Side 1]1-6[Side 2]noun
+[Language A]병[Language B]sickness, disease[Aux A]not item[Aux B][Side 1]1-6[Side 2]noun
+[Language A]생선[Language B]fish[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]야채[Language B]vegetable[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]언덕[Language B]hill[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]선물[Language B]present, gift[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]기타[Language B]guitar[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]종이[Language B]paper[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]우유[Language B]milk[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]손목[Language B]wrist[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]시계[Language B]clock/watch[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]손목시계[Language B]wristwatch[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]영화[Language B]movie[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]노력하다[Language B]to try[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]앉다[Language B]to sit[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]만지다[Language B]to touch[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]자다[Language B]to sleep[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]보다[Language B]to see[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]기다리다[Language B]to wait[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]청소하다[Language B]to clean[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]약속하다[Language B]to promise[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]듣다[Language B]to hear[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]들어보다[Language B]to listen[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]그만하다[Language B]to stop[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]운동하다[Language B]to excercise[Aux A][Aux B][Side 1]1-6[Side 2]verb
+[Language A]놀라다[Language B]to be surprised[Aux A][Aux B][Side 1]1-6[Side 2]adjective
+[Language A]빠르다[Language B]to be fast[Aux A][Aux B][Side 1]1-6[Side 2]adjective
+[Language A]느리다[Language B]to be slow[Aux A][Aux B][Side 1]1-6[Side 2]adjective
+[Language A]착하다[Language B]to be nice[Aux A][Aux B][Side 1]1-6[Side 2]adjective
+[Language A]곧[Language B]soon[Aux A][Aux B][Side 1]1-6[Side 2]adverb
+[Language A]항상[Language B]always[Aux A][Aux B][Side 1]1-6[Side 2]adverb
+[Language A]주[Language B]week[Aux A][Aux B][Side 1]1-6[Side 2]noun
+[Language A]아래[Language B]bottom[Aux A][Aux B][Side 1]1-6[Side 2]noun

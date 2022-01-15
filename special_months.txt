@@ -1,0 +1,13 @@
+[name aux]
+[Language A]일월[Language B]January
+[Language A]이월[Language B]February
+[Language A]삼월[Language B]March
+[Language A]사월[Language B]April
+[Language A]오월[Language B]May
+[Language A]유월[Language B]June
+[Language A]칠월[Language B]July
+[Language A]팔월[Language B]August
+[Language A]구월[Language B]September
+[Language A]시월[Language B]October
+[Language A]십일월[Language B]November
+[Language A]십이월[Language B]December

@@ -1,0 +1,49 @@
+[name aux][name side 1]Lesson[name side 2]Formality[name side 3]Comment
+[Language A][Language B][Aux A][Aux B][Side 1]1-7[Side 2]
+[Language A]나는 집을 지어.[Language B]I build a house.[Aux A][Aux B][Side 1]1-7[Side 2]해체
+[Language A]저는 집을 비었어요.[Language B]I built a house.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 웃었어요.[Language B]I laughed.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 저의 옷을 벗였어요.[Language B]I took off my clothes.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 저의 손을 씻었어요.[Language B]I washed my hands.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 걸어요.[Language B]I walk.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 걸었어요.[Language B]I walked.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]돈을 받았어요.[Language B]I received money.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 저의 강아지를 묻었어요.[Language B]I buried my dog.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 문을 닫았어요.[Language B]I closed the door.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]그것은 쉬워.[Language B]That is easy.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해체
+[Language A]그것은 어려워요.[Language B]That is difficult.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]그 여자는 귀여워요.[Language B]That girl is cute.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]저는 저의 어머니를 도왔어요.[Language B]I helped my mother.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]사과는 크다.[Language B]Apples are big.[Aux A][Aux B][Side 1]1-7[Side 2]해라체
+[Language A]나는 큰 사과를 좋아한다.[Language B]I like big apples.[Aux A][Aux B][Side 1]1-7[Side 2]해라체
+[Language A]저는 귀여운 여자를 좋아해요.[Language B]I like cute girls.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 쉬운 일을 했어요.[Language B]I did easy work.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 부드러운 손이 있어.[Language B]I have soft hands.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 추운 날씨를 좋아해요.[Language B]I like cold weather.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]그 여자는 아름다워요.[Language B]That girl is beautiful.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]그 학교는 새로워요.[Language B]That school is new.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]그것은 새로운 학교예요.[Language B]That is a new school.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]이 방은 좁아요.[Language B]That room is narrow.[Aux A][Aux B]from context.[Side 1]1-7[Side 2]해요체
+[Language A]저는 공을 잡았어요.[Language B]I caught the ball.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]이 방은 넓어요.[Language B]This room is big.[Aux A][Aux B]big = wide[Side 1]1-7[Side 2]해요체[Side 3]Korean people often describe a room/place being “big” by saying it is “wide”.
+[Language A]저는 문을 잠갔어요.[Language B]I locked the door.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 바빠요.[Language B]I am busy.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]그 여자는 예뻐요.[Language B]That girl is pretty.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]저는 아주 슬퍼요.[Language B]I am very sad.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]그 집은 커요.[Language B]That house is big.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]저는 머리를 긁었어요.[Language B]I scratched my head.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 쥐를 들었어요.[Language B]I heard a mouse.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]그것은 달라요.[Language B]That (thing) is different.[Aux A][Aux B]from context[Side 1]1-7[Side 2]해요체
+[Language A]그 남자는 빨라요.[Language B]That man is fast.[Aux A][Aux B][Side 1]1-7[Side 2]해요체
+[Language A]저는 저의 누나를 불렀어요.[Language B]I called my older sister.[Aux A][Aux B]when speaker is male[Side 1]1-7[Side 2]해요체
+[Language A]저는 긴 거리를 건넜어요.[Language B]I crossed the long street.[Aux A][Aux B][Side 1]1-7[Side 2]해요채
+[Language A]저는 먼 병원에 갔어요.[Language B]I went to a far away hospital.[Aux A][Aux B]a hospital that is far away.[Side 1]1-7[Side 2]해요체
+[Language A]나는 케이크를 만든다.[Language B]I make a cake.[Aux A][Aux B][Side 1]1-7[Side 2]해라체
+[Language A]저는 집에 갑니다.[Language B]I go home.[Aux A][Aux B][Side 1]1-7[Side 2]하십시오체
+[Language A]저는 밥을 먹습니다.[Language B]I eat rice.[Aux A][Aux B][Side 1]1-7[Side 2]하십시오체
+[Language A]그 여자는 예쁩니다.[Language B]That girl is pretty.[Aux A][Aux B]from context.[Side 1]1-7[Side 2]하십시오체
+[Language A]이 방은 넓습니다.[Language B]The room is big.[Aux A][Aux B]big = wide[Side 1]1-7[Side 2]하십시오체[Side 3]Korean people often describe a room/place being “big” by saying it is “wide”.
+[Language A]저는 문을 엽니다.[Language B]I open the door.[Aux A][Aux B][Side 1]1-7[Side 2]하십시오체
+[Language A]저는 케이크를 만듭니다.[Language B]I make a cake.[Aux A][Aux B][Side 1]1-7[Side 2]하십시오체
+[Language A]그 병원은 멉니다.[Language B]That hospital is far.[Aux A][Aux B]from context[Side 1]1-7[Side 2]하십시오체
+[Language A]그 여자의 머리카락은 깁니다.[Language B]That girl's hair is long.[Aux A][Aux B][Side 1]1-7[Side 2]하십시오체
